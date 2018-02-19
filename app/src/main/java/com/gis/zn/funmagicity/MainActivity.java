@@ -1,19 +1,25 @@
 package com.gis.zn.funmagicity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
 import com.gis.zn.funmagicity.entity.User;
+import com.gis.zn.funmagicity.ui.LoginActivity;
+import com.gis.zn.funmagicity.ui.RoutingActivity;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
 public class MainActivity extends AppCompatActivity {
-    private MapView mMapView = null;
+
+    private Button test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,40 +28,34 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        initView();
 
-        User p2 = new User();
-        p2.setName("lucky");
-        p2.setAddress("北京海淀");
-        p2.save(new SaveListener<String>() {
+//        User p2 = new User();
+//        p2.setName("lucky");
+//        p2.setAddress("北京海淀");
+//        p2.save(new SaveListener<String>() {
+//            @Override
+//            public void done(String objectId,BmobException e) {
+//                if(e==null){
+//                    Toast.makeText(getApplicationContext(),"添加数据成功，返回objectId为："+objectId,Toast.LENGTH_LONG);
+//                }else{
+//                    Toast.makeText(getApplicationContext(),"创建数据失败：" + e.getMessage(),Toast.LENGTH_LONG);
+//                }
+//            }
+//        });
+
+        test.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void done(String objectId,BmobException e) {
-                if(e==null){
-                    Toast.makeText(getApplicationContext(),"添加数据成功，返回objectId为："+objectId,Toast.LENGTH_LONG);
-                }else{
-                    Toast.makeText(getApplicationContext(),"创建数据失败：" + e.getMessage(),Toast.LENGTH_LONG);
-                }
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"test：",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
             }
         });
-
-        mMapView = (MapView) findViewById(R.id.bmapView);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
-        mMapView.onDestroy();
+    private void initView(){
+        test=(Button)findViewById(R.id.btn_test);
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理
-        mMapView.onResume();
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
-        mMapView.onPause();
-    }
+
 }
