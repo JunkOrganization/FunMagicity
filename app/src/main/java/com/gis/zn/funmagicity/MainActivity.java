@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
 //        BmobUser bu = new BmobUser();
 //        bu.setUsername("zn");
 //        bu.setPassword("zz");
-////        bu.setEmail("sendi@163.com");
+//        bu.setEmail("sendi@163.com");
 ////注意：不能用save方法进行注册
 //        bu.signUp(new SaveListener<MyUser>() {
 //            @Override

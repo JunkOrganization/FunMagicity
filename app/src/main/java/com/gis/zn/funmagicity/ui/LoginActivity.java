@@ -52,6 +52,7 @@ public class LoginActivity extends BaseActivity {
     void register(View view){
         Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void login(){
