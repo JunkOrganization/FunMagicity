@@ -1,7 +1,6 @@
 package com.gis.zn.funmagicity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,11 +9,9 @@ import android.widget.Toast;
 import com.gis.zn.funmagicity.entity.MyUser;
 import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.LoginActivity;
-import com.gis.zn.funmagicity.ui.RegisterActivity;
+import com.gis.zn.funmagicity.ui.TestActivity;
 
 import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.SaveListener;
 
 public class MainActivity extends BaseActivity {
 
@@ -64,7 +61,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this,"test：",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
 
             }
         });

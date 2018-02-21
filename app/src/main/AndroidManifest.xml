@@ -53,15 +53,15 @@
             android:label="@string/title_activity_routing"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
-
         <activity
             android:name=".ui.RegisterActivity"
             android:label="@string/title_activity_register">
+        </activity>
+        <activity android:name=".ui.TestActivity">
         </activity>
     </application>
 
