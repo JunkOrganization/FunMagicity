@@ -1,37 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:weightSum="100"
-                 android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="100">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/colorPrimary"
         android:layout_weight="7"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
         android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ical_empty"/>
+            android:layout_weight="6"
+            android:padding="10dp"
+            android:src="@drawable/title"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="5dp"
+            android:src="@drawable/icon_user"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:layout_weight="13"
-        android:orientation="horizontal">
+        android:layout_weight="5">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/paddingHorizontal"
+            android:text="请根据您的出游情况进行选择"
+            android:textSize="12dp"/>
     </LinearLayout>
-    <DatePicker
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:calendarViewShown="false">
 
-    </DatePicker>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="88"
+        android:scrollbars="vertical">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="9">
+            <TextView
+                android:layout_column="0"
+                android:layout_row="0"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/title_paddingVertical"
+                android:text="出行时间:"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_column="0"
+                android:layout_row="1"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/title_paddingVertical"
+                android:text="年 月 日:"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_column="1"
+                android:layout_row="1"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/title_paddingVertical"
+                android:text="年 月 日:"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="2"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/title_paddingVertical"
+                android:layout_marginTop="@dimen/line_layout_marginTop"
+                android:text="出行小伙伴:"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="4"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/title_paddingVertical"
+                android:text="年 月 日:"
+                android:textSize="18dp"/>
+        </GridLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>
