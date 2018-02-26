@@ -3,19 +3,31 @@ package com.gis.zn.funmagicity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.gis.zn.funmagicity.entity.Label1Mapping;
 import com.gis.zn.funmagicity.entity.MyUser;
+import com.gis.zn.funmagicity.entity.Scenery;
 import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.LoginActivity;
 import com.gis.zn.funmagicity.ui.TestActivity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -33,6 +45,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.btn_next_step)
     Button btn_next_step;
 
+    private int label1_friends_id=1;
+    private int label1_parent_child_id=2;
+    private int label1_lovers_id=3;
+    private int label1_colleague_id=4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +82,79 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_next_step:
-                Toast.makeText(MainActivity.this, "button.click", Toast.LENGTH_SHORT).show();
+                if(is_permitted())
+                {
+                    searchByLabel1();
+                }
                 break;
         }
     }
 
+    private boolean is_permitted(){
+        if(!label1_friends.isChecked()&&!label1_parent_child.isChecked()&&!label1_lovers.isChecked()
+                &&!label1_colleague.isChecked()&&!label1_random.isChecked())
+        {
+            toast("出行小伙伴请至少选择一项 ^ ^");
+            return false;
+        }
+        else
+            return true;
+    }
 
+
+    private void searchByLabel1(){
+
+        BmobQuery<Label1Mapping> query1 = new BmobQuery<Label1Mapping>();
+        query1.addWhereEqualTo("labelId",label1_friends_id);
+        BmobQuery<Label1Mapping> query2 = new BmobQuery<Label1Mapping>();
+        query2.addWhereEqualTo("labelId",label1_parent_child_id);
+        BmobQuery<Label1Mapping> query3 = new BmobQuery<Label1Mapping>();
+        query3.addWhereEqualTo("labelId",label1_lovers_id);
+        BmobQuery<Label1Mapping> query4 = new BmobQuery<Label1Mapping>();
+        query4.addWhereEqualTo("labelId",label1_colleague_id);
+
+        List<BmobQuery<Label1Mapping>> queries = new ArrayList<BmobQuery<Label1Mapping>>();
+        if(label1_friends.isChecked())
+            queries.add(query1);
+        if(label1_parent_child.isChecked())
+            queries.add(query2);
+        if(label1_lovers.isChecked())
+            queries.add(query3);
+        if(label1_colleague.isChecked())
+            queries.add(query4);
+        if(label1_random.isChecked())
+        {
+            queries.add(query1);
+            queries.add(query2);
+            queries.add(query3);
+            queries.add(query4);
+        }
+
+        BmobQuery<Label1Mapping> mainQuery = new BmobQuery<Label1Mapping>();
+        mainQuery.or(queries);
+//返回50条数据，如果不加上这条语句，默认返回10条数据
+        mainQuery.setLimit(25);
+//执行查询方法
+        mainQuery.findObjects(new FindListener<Label1Mapping>() {
+            @Override
+            public void done(List<Label1Mapping> object, BmobException e) {
+                if(e==null){
+                    toast("查询成功：共"+object.size()+"条数据。");
+                    sceneryResult(object);
+                }else{
+                    Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                }
+            }
+        });
+    }
+
+    private void sceneryResult(List<Label1Mapping> label1MappingList){
+        HashMap hashMap1 = new HashMap<Integer,Label1Mapping>();
+        for (Label1Mapping label1Mapping: label1MappingList)
+        {
+            hashMap1.put(label1Mapping.getSceneryId(),label1Mapping);
+        }
+        toast("查询成功：共"+hashMap1.size()+"条数据。");
+
+    }
 }
