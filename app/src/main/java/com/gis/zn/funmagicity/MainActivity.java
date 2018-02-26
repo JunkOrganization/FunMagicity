@@ -2,8 +2,10 @@ package com.gis.zn.funmagicity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.gis.zn.funmagicity.entity.MyUser;
@@ -11,64 +13,42 @@ import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.LoginActivity;
 import com.gis.zn.funmagicity.ui.TestActivity;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import cn.bmob.v3.BmobUser;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
-    private Button test;
+    @Bind(R.id.label1_friends)
+    CheckBox label1_friends;
+    @Bind(R.id.label1_parent_child)
+    CheckBox label1_parent_child;
+    @Bind(R.id.label1_lovers)
+    CheckBox label1_lovers;
+    @Bind(R.id.label1_colleague)
+    CheckBox label1_colleague;
+    @Bind(R.id.label1_random)
+    CheckBox label1_random;
+
+    @Bind(R.id.btn_next_step)
+    Button btn_next_step;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
+        judgeLogined();
         initView();
 
-//        MyUser p2 = new MyUser();
-//        p2.setUsername("zz");
-//        p2.setPassword("zz");
-//        p2.setPwd("zz");
-//        p2.signUp(new SaveListener<String>() {
-//            @Override
-//            public void done(String objectId,BmobException e) {
-//                if(e==null){
-//                    Toast.makeText(getApplicationContext(),"添加数据成功，返回objectId为："+objectId,Toast.LENGTH_LONG);
-//                }else{
-//                    Toast.makeText(getApplicationContext(),"创建数据失败：" + e.getMessage(),Toast.LENGTH_LONG);
-//                }
-//            }
-//        });
+        btn_next_step.setOnClickListener(this);
 
-//        BmobUser bu = new BmobUser();
-//        bu.setUsername("zn");
-//        bu.setPassword("zz");
-//        bu.setEmail("sendi@163.com");
-////注意：不能用save方法进行注册
-//        bu.signUp(new SaveListener<MyUser>() {
-//            @Override
-//            public void done(MyUser s, BmobException e) {
-//                if(e==null){
-//                    toast("注册成功:" +s.toString());
-//                }else{
-//                    toast("注册失败:" +e);
-//                }
-//            }
-//        });
-
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"test：",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, TestActivity.class));
-
-            }
-        });
     }
 
     private void initView(){
-        test=(Button)findViewById(R.id.btn_test);
     }
 
     private void judgeLogined(){
@@ -80,4 +60,16 @@ public class MainActivity extends BaseActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_next_step:
+                Toast.makeText(MainActivity.this, "button.click", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+
 }

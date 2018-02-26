@@ -13,7 +13,7 @@ import com.gis.zn.funmagicity.R;
 import com.gis.zn.funmagicity.entity.MyUser;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -25,13 +25,13 @@ import cn.bmob.v3.listener.LogInListener;
 
 public class LoginActivity extends BaseActivity {
 
-    @InjectView(R.id.btn_login)
+    @Bind(R.id.btn_login)
     Button btn_login;
-    @InjectView(R.id.btn_register)
+    @Bind(R.id.btn_register)
     Button btn_register;
-    @InjectView(R.id.login_username)
+    @Bind(R.id.login_username)
     EditText et_login_username;
-    @InjectView(R.id.register_password)
+    @Bind(R.id.register_password)
     EditText et_login_password;
 
     @Override
@@ -39,7 +39,7 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initView();
     }
 

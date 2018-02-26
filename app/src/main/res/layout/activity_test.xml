@@ -37,13 +37,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="7">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/paddingHorizontal"
+            android:paddingVertical="@dimen/title_paddingVertical"
             android:text="请根据您的出游情况进行选择"
             android:textSize="12dp"/>
     </LinearLayout>
@@ -57,49 +58,171 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
+            android:columnCount="3"
             android:rowCount="9">
             <TextView
                 android:layout_column="0"
                 android:layout_row="0"
                 android:paddingHorizontal="@dimen/paddingHorizontal"
-                android:paddingVertical="@dimen/title_paddingVertical"
+                android:paddingVertical="@dimen/paddingVertical"
                 android:text="出行时间:"
+                android:layout_columnSpan="3"
                 android:textSize="20dp"/>
             <TextView
                 android:layout_column="0"
                 android:layout_row="1"
                 android:paddingHorizontal="@dimen/paddingHorizontal"
-                android:paddingVertical="@dimen/title_paddingVertical"
+                android:paddingVertical="@dimen/paddingVertical"
                 android:text="年 月 日:"
+                android:layout_columnWeight="1"
                 android:textSize="18dp"/>
             <TextView
                 android:layout_column="1"
                 android:layout_row="1"
                 android:paddingHorizontal="@dimen/paddingHorizontal"
-                android:paddingVertical="@dimen/title_paddingVertical"
                 android:text="年 月 日:"
+                android:layout_columnWeight="1"
                 android:textSize="18dp"/>
 
             <TextView
                 android:layout_column="0"
                 android:layout_row="2"
                 android:paddingHorizontal="@dimen/paddingHorizontal"
-                android:paddingVertical="@dimen/title_paddingVertical"
+                android:paddingVertical="@dimen/paddingVertical"
                 android:layout_marginTop="@dimen/line_layout_marginTop"
                 android:text="出行小伙伴:"
+                android:layout_columnSpan="3"
                 android:textSize="20dp"/>
+
+            <CheckBox
+                android:layout_column="0"
+                android:layout_row="3"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="朋友"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="1"
+                android:layout_row="3"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="亲子"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="2"
+                android:layout_row="3"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="情侣"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="0"
+                android:layout_row="4"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="同事"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="1"
+                android:layout_row="4"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="随机"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
 
             <TextView
                 android:layout_column="0"
-                android:layout_row="4"
+                android:layout_row="5"
                 android:paddingHorizontal="@dimen/paddingHorizontal"
-                android:paddingVertical="@dimen/title_paddingVertical"
-                android:text="年 月 日:"
-                android:textSize="18dp"/>
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginTop="@dimen/line_layout_marginTop"
+                android:text="旅行风格:"
+                android:layout_columnSpan="3"
+                android:textSize="20dp"/>
+
+            <CheckBox
+                android:layout_column="0"
+                android:layout_row="6"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="特色美食"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="1"
+                android:layout_row="6"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="风景摄影"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="2"
+                android:layout_row="6"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="网红小资"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="0"
+                android:layout_row="7"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="休闲娱乐"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="1"
+                android:layout_row="7"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="历史文化"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:layout_column="2"
+                android:layout_row="7"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="随机"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <Button
+                android:layout_row="8"
+                android:layout_columnSpan="3"
+                android:layout_marginTop="@dimen/paddingVerticalHigher"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
+                android:text="下一步"
+                />
         </GridLayout>
 
     </ScrollView>
-
 
 </LinearLayout>

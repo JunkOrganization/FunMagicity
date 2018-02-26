@@ -13,8 +13,9 @@ import com.gis.zn.funmagicity.MainActivity;
 import com.gis.zn.funmagicity.R;
 import com.gis.zn.funmagicity.entity.MyUser;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -26,11 +27,11 @@ import cn.bmob.v3.listener.SaveListener;
 
 public class RegisterActivity extends BaseActivity {
 
-    @InjectView(R.id.register_account)
+    @Bind(R.id.register_account)
     EditText et_account;
-    @InjectView(R.id.register_password)
+    @Bind(R.id.register_password)
     EditText et_password;
-    @InjectView(R.id.register_password2)
+    @Bind(R.id.register_password2)
     EditText et_pwd_again;
 
     @Override
@@ -38,7 +39,7 @@ public class RegisterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.btn_login)
