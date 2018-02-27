@@ -1,8 +1,11 @@
 package com.gis.zn.funmagicity.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.gis.zn.funmagicity.R;
@@ -18,15 +21,17 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-public class SceneryActivity extends BaseActivity {
+public class SceneryActivity extends BaseActivity implements View.OnClickListener {
 
     private ArrayList<Integer> list;
-    private ArrayList<Integer> listop=new ArrayList<>();
-    private List<Scenery> mSceneryList=new ArrayList<>();
+    private ArrayList<Integer> listop = new ArrayList<>();
+    private List<Scenery> mSceneryList = new ArrayList<>();
 
 
     @Bind(R.id.listview)
     ListView mListView;
+    @Bind(R.id.user_info3)
+    ImageView user_info3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,49 +39,62 @@ public class SceneryActivity extends BaseActivity {
         setContentView(R.layout.activity_scenery);
         ButterKnife.bind(this);
 
+        user_info3.setOnClickListener(this);
+
         list = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("scenery_res");
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             listop.add(list.get(i));
         }
-        showLog("sceneryResultFinal:"+mSceneryList.size());
+        showLog("sceneryResultFinal:" + mSceneryList.size());
 
 
-                sceneryResultFinal();
+        sceneryResultFinal();
 
     }
 
 
-    private void sceneryResultFinal(){
-        for(final Integer i:listop){
+    private void sceneryResultFinal() {
+        for (final Integer i : listop) {
             BmobQuery<Scenery> query = new BmobQuery<Scenery>();
-            int a=i.intValue();
+            int a = i.intValue();
             showLog(String.valueOf(a));
             query.addWhereEqualTo("id", a);
 //执行查询方法
             query.findObjects(new FindListener<Scenery>() {
                 @Override
                 public void done(List<Scenery> object, BmobException e) {
-                    if(e==null){
+                    if (e == null) {
                         for (Scenery scenery : object) {
                             mSceneryList.add(scenery);
-                            showLog("sceneryResultFinal:"+mSceneryList.size());
+                            showLog("sceneryResultFinal:" + mSceneryList.size());
                             {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        SceneryAdapter sceneryAdapter=new SceneryAdapter(SceneryActivity.this,R.layout.item_scenery,mSceneryList);
+                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(SceneryActivity.this, R.layout.item_scenery, mSceneryList);
                                         mListView.setAdapter(sceneryAdapter);
                                     }
                                 });
 
                             }
                         }
-                    }else{
-                        Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                    } else {
+                        Log.i("bmob", "失败：" + e.getMessage() + "," + e.getErrorCode());
                     }
                 }
             });
         }
-        showLog("sceneryResultFinal:"+mSceneryList.size());
+        showLog("sceneryResultFinal:" + mSceneryList.size());
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.user_info3:
+                startActivity(new Intent(SceneryActivity.this, UserInfoActivity.class));
+                break;
+        }
+
     }
 }

@@ -98,13 +98,14 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
 
 
     private void initView() {
-        if (!sub_label1_value&&!sub_label6_value) {
+        if (!sub_label1_value && !sub_label6_value) {
             hideSubLabel1();
         }
-        if (!sub_label2_value&&!sub_label6_value) {
+        if (!sub_label2_value && !sub_label6_value) {
             hideSubLabel2();
         }
         btn_submit.setOnClickListener(this);
+        user_info2.setOnClickListener(this);
     }
 
     private boolean is_permitted() {
