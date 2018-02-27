@@ -71,8 +71,11 @@
             android:name=".ui.UserInfoActivity"
             android:theme="@style/AppTheme.NoActionBar.FullScreen">
         </activity>
-        <activity android:name=".ui.SecondActivity"
-                  android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".ui.SecondActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ui.SceneryActivity">
         </activity>
     </application>
 

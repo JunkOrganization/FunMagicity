@@ -1,12 +1,14 @@
 package com.gis.zn.funmagicity.entity;
 
+import java.io.Serializable;
+
 import cn.bmob.v3.BmobObject;
 
 /**
  * Created by zhaoning on 2018/2/26.
  */
 
-public class Scenery extends BmobObject {
+public class Scenery extends BmobObject  {
     private int id;
     private String name;
     private String intro;
