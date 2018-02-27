@@ -38,6 +38,7 @@
             android:src="@drawable/title_whiter"/>
 
         <ImageView
+            android:id="@+id/user_info1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -64,14 +65,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="88"
+        android:layout_weight="86"
         android:scrollbars="vertical">
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="3"
-            android:rowCount="9">
+            android:rowCount="17">
             <TextView
                 android:layout_column="0"
                 android:layout_row="0"
@@ -177,7 +178,7 @@
                 android:textSize="20dp"/>
 
             <CheckBox
-                android:id="@+id/label2_food"
+                android:id="@+id/label2_1"
                 android:layout_column="0"
                 android:layout_row="6"
                 android:paddingVertical="@dimen/paddingVertical"
@@ -188,7 +189,7 @@
                 android:textColor="@color/colorCheckboxText"
                 />
             <CheckBox
-                android:id="@+id/label2_scenery"
+                android:id="@+id/label2_2"
                 android:layout_column="1"
                 android:layout_row="6"
                 android:paddingVertical="@dimen/paddingVertical"
@@ -198,7 +199,7 @@
                 android:textColor="@color/colorCheckboxText"
                 />
             <CheckBox
-                android:id="@+id/label2_petty"
+                android:id="@+id/label2_3"
                 android:layout_column="2"
                 android:layout_row="6"
                 android:paddingVertical="@dimen/paddingVertical"
@@ -208,7 +209,7 @@
                 android:textColor="@color/colorCheckboxText"
                 />
             <CheckBox
-                android:id="@+id/label2_fun"
+                android:id="@+id/label2_4"
                 android:layout_column="0"
                 android:layout_row="7"
                 android:paddingVertical="@dimen/paddingVertical"
@@ -219,7 +220,7 @@
                 android:textColor="@color/colorCheckboxText"
                 />
             <CheckBox
-                android:id="@+id/label2_history"
+                android:id="@+id/label2_5"
                 android:layout_column="1"
                 android:layout_row="7"
                 android:paddingVertical="@dimen/paddingVertical"
@@ -229,7 +230,7 @@
                 android:textColor="@color/colorCheckboxText"
                 />
             <CheckBox
-                android:id="@+id/label2_random"
+                android:id="@+id/label2_6"
                 android:layout_column="2"
                 android:layout_row="7"
                 android:paddingVertical="@dimen/paddingVertical"
@@ -238,11 +239,143 @@
                 android:textSize="15dp"
                 android:textColor="@color/colorCheckboxText"
                 />
+
+            <TextView
+                android:id="@+id/sub_label1"
+                android:layout_column="0"
+                android:layout_row="9"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginTop="@dimen/line_layout_marginTop"
+                android:text="特色美食:"
+                android:textColor="@color/colorCheckboxTitle"
+                android:layout_columnSpan="3"
+                android:textSize="20dp"/>
+
+            <CheckBox
+                android:id="@+id/sub_label1_1"
+                android:layout_column="0"
+                android:layout_row="10"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="本帮"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label1_2"
+                android:layout_column="1"
+                android:layout_row="10"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="日韩料理"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label1_3"
+                android:layout_column="2"
+                android:layout_row="10"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="东南亚"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label1_4"
+                android:layout_column="0"
+                android:layout_row="11"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="美式快餐"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label1_5"
+                android:layout_column="1"
+                android:layout_row="11"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="人气最旺"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label1_6"
+                android:layout_column="2"
+                android:layout_row="11"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="随机"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+
+            <TextView
+                android:id="@+id/sub_label2"
+                android:layout_column="0"
+                android:layout_row="12"
+                android:paddingHorizontal="@dimen/paddingHorizontal"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginTop="@dimen/line_layout_marginTop"
+                android:text="风景摄影:"
+                android:textColor="@color/colorCheckboxTitle"
+                android:layout_columnSpan="3"
+                android:textSize="20dp"/>
+
+            <CheckBox
+                android:id="@+id/sub_label2_1"
+                android:layout_column="0"
+                android:layout_row="13"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="自然风光"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label2_2"
+                android:layout_column="1"
+                android:layout_row="13"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="地标打卡"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label2_3"
+                android:layout_column="2"
+                android:layout_row="13"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:text="街道生活"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+            <CheckBox
+                android:id="@+id/sub_label2_4"
+                android:layout_column="0"
+                android:layout_row="14"
+                android:paddingVertical="@dimen/paddingVertical"
+                android:layout_marginLeft="@dimen/paddingHorizontal"
+                android:text="随机"
+                android:layout_columnWeight="1"
+                android:textSize="15dp"
+                android:textColor="@color/colorCheckboxText"
+                />
+
             <Button
                 android:id="@+id/btn_next_step"
-                android:layout_row="8"
+                android:layout_row="15"
                 android:layout_columnSpan="3"
                 android:layout_marginTop="@dimen/line_layout_marginTop"
+                android:layout_marginBottom="@dimen/paddingVertical"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@color/colorPrimary"
