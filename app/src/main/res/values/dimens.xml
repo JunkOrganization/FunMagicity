@@ -1,6 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="paddingHorizontal">10dp</dimen>
+    <dimen name="paddingHorizontal">30dp</dimen>
     <dimen name="paddingVertical">10dp</dimen>
     <dimen name="paddingVerticalHigher">15dp</dimen>
     <dimen name="title_paddingVertical">5dp</dimen>

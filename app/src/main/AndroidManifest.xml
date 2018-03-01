@@ -65,7 +65,7 @@
         </activity>
         <activity
             android:name=".ui.TestActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar.Gray">
         </activity>
         <activity
             android:name=".ui.UserInfoActivity"
@@ -76,6 +76,18 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".ui.SceneryActivity">
+        </activity>
+        <activity
+            android:name=".Label1Activity"
+            android:theme="@style/AppTheme.NoActionBar.Yellow">
+        </activity>
+        <activity
+            android:name=".Label2Activity"
+            android:theme="@style/AppTheme.NoActionBar.Gray">
+        </activity>
+        <activity android:name=".SubLabel1Activity">
+        </activity>
+        <activity android:name=".SubLabel2Activity">
         </activity>
     </application>
 

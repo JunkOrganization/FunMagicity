@@ -13,6 +13,20 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBar.Yellow">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorYellowOrange</item>
+        <item name="colorAccent">@color/colorCheckboxTitle</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Gray">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorGrey</item>
+        <item name="colorAccent">@color/colorYellowOrange</item>
+    </style>
+
     <style name="AppTheme.NoActionBar.FullScreen">
         <!-- 设置全屏-->
         <item name="android:windowFullscreen">true</item>
@@ -36,6 +50,12 @@
         <item name="android:windowIsFloating">true</item>
         <!--是否模糊-->
         <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+
+    <style name="My_CheckBox" parent="@android:style/Widget.Material.CompoundButton.CheckBox">
+        <!--<item name="android:colorControlActivated">@color/colorAccent</item>-->
+        <item name="android:colorControlNormal">@color/colorYellowOrange</item>
     </style>
 
 </resources>

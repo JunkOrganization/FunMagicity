@@ -125,6 +125,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initView() {
         btn_next_step.setOnClickListener(this);
         user_info1.setOnClickListener(this);
+        label1_random.setOnClickListener(this);
+        label2_6.setOnClickListener(this);
     }
 
     private void judgeLogined() {
@@ -158,7 +160,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.user_info1:
-                startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                break;
+            case R.id.label1_random:
+                label1_friends.setChecked(false);
+                label1_parent_child.setChecked(false);
+                label1_lovers.setChecked(false);
+                label1_colleague.setChecked(false);
+                break;
+            case R.id.label2_6:
+                label2_1.setChecked(false);
+                label2_2.setChecked(false);
+                label2_3.setChecked(false);
+                label2_4.setChecked(false);
+                label2_5.setChecked(false);
                 break;
         }
     }
@@ -177,8 +192,80 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return true;
     }
 
-
     private void searchByLabel1() {
+
+        //label1
+        BmobQuery<Label1Mapping> query1 = new BmobQuery<Label1Mapping>();
+        query1.addWhereEqualTo("labelId", label1_friends_id);
+        BmobQuery<Label1Mapping> query2 = new BmobQuery<Label1Mapping>();
+        query2.addWhereEqualTo("labelId", label1_parent_child_id);
+        BmobQuery<Label1Mapping> query3 = new BmobQuery<Label1Mapping>();
+        query3.addWhereEqualTo("labelId", label1_lovers_id);
+        BmobQuery<Label1Mapping> query4 = new BmobQuery<Label1Mapping>();
+        query4.addWhereEqualTo("labelId", label1_colleague_id);
+
+        List<BmobQuery<Label1Mapping>> queries1 = new ArrayList<BmobQuery<Label1Mapping>>();
+
+        if (label1_friends.isChecked())
+            queries1.add(query1);
+        if (label1_parent_child.isChecked())
+            queries1.add(query2);
+        if (label1_lovers.isChecked())
+            queries1.add(query3);
+        if (label1_colleague.isChecked())
+            queries1.add(query4);
+        if (label1_random.isChecked()) {
+            queries1.add(query1);
+            queries1.add(query2);
+            queries1.add(query3);
+            queries1.add(query4);
+        }
+        BmobQuery<Label1Mapping> mainQuery1 = new BmobQuery<Label1Mapping>();
+        mainQuery1.or(queries1);
+
+//返回50条数据，如果不加上这条语句，默认返回10条数据
+        mainQuery1.setLimit(200);
+//执行查询方法
+        mainQuery1.findObjects(new FindListener<Label1Mapping>() {
+            @Override
+            public void done(List<Label1Mapping> object, BmobException e) {
+                if (e == null) {
+                    toast("第一次查询成功：共" + object.size() + "条数据。");
+                    sceneryResult(object);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Message message = new Message();
+                            if (!label2_1.isChecked() && !label2_2.isChecked() && !label2_6.isChecked()) {
+                                showLog("thread3 success");
+                                message.what = 1;
+                            } else {
+                                message.what = 2;
+                            }
+                            mHandler.sendMessage(message);
+                        }
+                    }).start();
+
+//                    if(!label2_1.isChecked()&&!label2_2.isChecked()&&!label2_6.isChecked()){
+//                        Intent intent=new Intent(MainActivity.this, SceneryActivity.class);
+//                        intent.putExtra("scenery_res", (Serializable) object);
+//                        startActivity(intent);
+//                    }
+//                    else {
+//                        Intent intent=new Intent(MainActivity.this, SecondActivity.class);
+//                        intent.putExtra()
+//                        intent.putExtra("scenery_res", (Serializable) object);
+//                        startActivity(intent);
+//                    }
+                } else {
+                    Log.i("bmob", "失败：" + e.getMessage() + "," + e.getErrorCode());
+                }
+            }
+        });
+    }
+
+    private void searchByLabel2() {
 
         //label1
         BmobQuery<Label1Mapping> query1 = new BmobQuery<Label1Mapping>();
@@ -202,37 +289,47 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         BmobQuery<Label1Mapping> query9 = new BmobQuery<Label1Mapping>();
         query4.addWhereEqualTo("labelId", 9);
 
-        List<BmobQuery<Label1Mapping>> queries = new ArrayList<BmobQuery<Label1Mapping>>();
+        List<BmobQuery<Label1Mapping>> queries1 = new ArrayList<BmobQuery<Label1Mapping>>();
+        List<BmobQuery<Label1Mapping>> queries2 = new ArrayList<BmobQuery<Label1Mapping>>();
+        List<BmobQuery<Label1Mapping>> queries3 = new ArrayList<BmobQuery<Label1Mapping>>();
+
         if (label1_friends.isChecked())
-            queries.add(query1);
+            queries1.add(query1);
         if (label1_parent_child.isChecked())
-            queries.add(query2);
+            queries1.add(query2);
         if (label1_lovers.isChecked())
-            queries.add(query3);
+            queries1.add(query3);
         if (label1_colleague.isChecked())
-            queries.add(query4);
+            queries1.add(query4);
         if (label1_random.isChecked()) {
-            queries.add(query1);
-            queries.add(query2);
-            queries.add(query3);
-            queries.add(query4);
+            queries1.add(query1);
+            queries1.add(query2);
+            queries1.add(query3);
+            queries1.add(query4);
         }
+        BmobQuery<Label1Mapping> mainQuery1 = new BmobQuery<Label1Mapping>();
+        mainQuery1.or(queries1);
 
         if (label2_3.isChecked())
-            queries.add(query7);
+            queries2.add(query7);
         if (label2_4.isChecked())
-            queries.add(query8);
+            queries2.add(query8);
         if (label2_5.isChecked())
-            queries.add(query9);
+            queries2.add(query9);
         if (label2_6.isChecked()) {
-            queries.add(query7);
-            queries.add(query8);
-            queries.add(query9);
+            queries2.add(query7);
+            queries2.add(query8);
+            queries2.add(query9);
         }
 
+        BmobQuery<Label1Mapping> mainQuery2 = new BmobQuery<Label1Mapping>();
+        mainQuery2.or(queries2);
+
+        queries3.add(mainQuery1);
+        queries3.add(mainQuery2);
 
         BmobQuery<Label1Mapping> mainQuery = new BmobQuery<Label1Mapping>();
-        mainQuery.or(queries);
+        mainQuery.and(queries3);
 //返回50条数据，如果不加上这条语句，默认返回10条数据
         mainQuery.setLimit(200);
 //执行查询方法
@@ -240,7 +337,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void done(List<Label1Mapping> object, BmobException e) {
                 if (e == null) {
-//                    toast("查询成功：共" + object.size() + "条数据。");
+                    toast("第一次查询成功：共" + object.size() + "条数据。");
                     sceneryResult(object);
 
                     new Thread(new Runnable() {

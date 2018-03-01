@@ -16,7 +16,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="320dp"
             app:cardCornerRadius="6dp"
             app:cardElevation="3dp"
             app:cardUseCompatPadding="true"
@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:text="风景摄影"
+                    android:text="@string/label2"
                     android:textColor="@color/colorWhite"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -47,14 +47,14 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="自然风光"
+                        android:text="特色美食"
                         android:theme="@style/My_CheckBox"
                         android:textSize="12sp"
                         android:textColor="@color/colorWhite"/>
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="地标打卡"
+                        android:text="风景摄影"
                         android:textSize="12sp"
                         android:theme="@style/My_CheckBox"
                         android:textColor="@color/colorWhite"
@@ -71,14 +71,38 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="街道生活"
+                        android:text="网红小资"
                         android:theme="@style/My_CheckBox"
                         android:textSize="12sp"
                         android:textColor="@color/colorWhite"/>
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="全选"
+                        android:text="休闲娱乐"
+                        android:textSize="12sp"
+                        android:theme="@style/My_CheckBox"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginLeft="20dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingStart="50dp"
+                    android:paddingEnd="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="30dp">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="历史文化"
+                        android:theme="@style/My_CheckBox"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorWhite"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="随机"
                         android:textSize="12sp"
                         android:theme="@style/My_CheckBox"
                         android:textColor="@color/colorWhite"
@@ -92,7 +116,7 @@
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:text="定制旅行"
+                    android:text="@string/next"
                     android:textColor="@color/colorWhite"
                     >
                 </Button>

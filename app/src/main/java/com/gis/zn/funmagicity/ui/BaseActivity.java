@@ -2,6 +2,7 @@ package com.gis.zn.funmagicity.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.BaseAdapter;
@@ -12,7 +13,7 @@ import android.widget.Toast;
  * Created by zhaoning on 2018/2/20.
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
     public static String TAG = "fun magicity";
 
     protected ListView mListview;

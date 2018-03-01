@@ -2,6 +2,8 @@
 <resources>
     <color name="colorPrimary">#FF8432</color>
     <color name="colorPrimaryDark">#E67931</color>
+    <color name="colorDark">#000000</color>
+
     <color name="colorPrimaryDarker">#D16038</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorPrimaryLight">#F0D6F6</color>
@@ -11,5 +13,15 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlackTransprant">#50000000</color>
     <color name="colorWhiteTransprant">#50FFFFFF</color>
+
+    <color name="colorBtnStoke">#FF8432</color>
+
+    <color name="colorYellowOrange">#F3AC2E</color>
+    <color name="colorGrey">#676767</color>
+    <color name="colorDarkerGrey">#28282A</color>
+    <color name="colorYellow">#F7B62D</color>
+    <color name="colorBlue">#1D86C8</color>
+    <color name="colorRed">#C82E3E</color>
+    <color name="colorGreen">#299A2A</color>
 
 </resources>
