@@ -160,7 +160,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.user_info1:
-                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                startActivity(new Intent(MainActivity.this, Label1Activity.class));
                 break;
             case R.id.label1_random:
                 label1_friends.setChecked(false);

@@ -50,17 +50,20 @@
                 android:paddingLeft="50dp"
                 android:paddingRight="30dp">
                 <CheckBox
+                    android:id="@+id/label1_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="朋友"
                     android:textColor="@color/colorCheckboxText"/>
                 <CheckBox
+                    android:id="@+id/label1_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="亲子"
                     android:textColor="@color/colorCheckboxText"
                     android:layout_marginLeft="10dp"/>
                 <CheckBox
+                    android:id="@+id/label1_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="情侣"
@@ -76,17 +79,20 @@
                 android:paddingLeft="50dp"
                 android:paddingRight="30dp">
                 <CheckBox
+                    android:id="@+id/label1_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="同事"
                     android:textColor="@color/colorCheckboxText"/>
                 <CheckBox
+                    android:id="@+id/label1_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="个人"
                     android:textColor="@color/colorCheckboxText"
                     android:layout_marginLeft="10dp"/>
                 <CheckBox
+                    android:id="@+id/label1_random"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="随机"
@@ -99,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
                 <Button
-                    android:id="@+id/bt_go"
+                    android:id="@+id/btn_next_step_label1"
                     android:background="@drawable/bt_shape"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:layout_width="150dp"

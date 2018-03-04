@@ -45,6 +45,7 @@
                     android:paddingLeft="50dp"
                     android:paddingRight="30dp">
                     <CheckBox
+                        android:id="@+id/sub2_label1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="自然风光"
@@ -52,6 +53,7 @@
                         android:textSize="12sp"
                         android:textColor="@color/colorWhite"/>
                     <CheckBox
+                        android:id="@+id/sub2_label2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="地标打卡"
@@ -69,6 +71,7 @@
                     android:paddingRight="30dp"
                     android:paddingLeft="50dp">
                     <CheckBox
+                        android:id="@+id/sub2_label3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="街道生活"
@@ -76,6 +79,7 @@
                         android:textSize="12sp"
                         android:textColor="@color/colorWhite"/>
                     <CheckBox
+                        android:id="@+id/sub2_label_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="全选"
@@ -87,7 +91,7 @@
                 <Button
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:id="@+id/bt_go"
+                    android:id="@+id/btn_next_step_sub2"
                     android:background="@drawable/bt_shape_2"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:layout_width="150dp"

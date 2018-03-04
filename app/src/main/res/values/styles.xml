@@ -53,9 +53,9 @@
     </style>
 
 
-    <style name="My_CheckBox" parent="@android:style/Widget.Material.CompoundButton.CheckBox">
-        <!--<item name="android:colorControlActivated">@color/colorAccent</item>-->
-        <item name="android:colorControlNormal">@color/colorYellowOrange</item>
-    </style>
+    <!--<style name="My_CheckBox" parent="@android:style/Widget.Material.CompoundButton.CheckBox">-->
+        <!--&lt;!&ndash;<item name="android:colorControlActivated">@color/colorAccent</item>&ndash;&gt;-->
+        <!--<item name="android:colorControlNormal">@color/colorYellowOrange</item>-->
+    <!--</style>-->
 
 </resources>

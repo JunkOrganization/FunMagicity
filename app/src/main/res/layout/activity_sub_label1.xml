@@ -50,17 +50,20 @@
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp">
                 <CheckBox
+                    android:id="@+id/sub1_label1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="本帮"
                     android:textColor="@color/colorCheckboxText"/>
                 <CheckBox
+                    android:id="@+id/sub1_label2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="日韩"
                     android:textColor="@color/colorCheckboxText"
                     android:layout_marginLeft="10dp"/>
                 <CheckBox
+                    android:id="@+id/sub1_label3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="东南亚"
@@ -76,17 +79,20 @@
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp">
                 <CheckBox
+                    android:id="@+id/sub1_label4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="西餐"
                     android:textColor="@color/colorCheckboxText"/>
                 <CheckBox
+                    android:id="@+id/sub1_label5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="人气"
                     android:textColor="@color/colorCheckboxText"
                     android:layout_marginLeft="10dp"/>
                 <CheckBox
+                    android:id="@+id/sub1_label_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="全选"
@@ -99,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
                 <Button
-                    android:id="@+id/bt_go"
+                    android:id="@+id/btn_next_step_sub1"
                     android:background="@drawable/bt_shape"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:layout_width="150dp"

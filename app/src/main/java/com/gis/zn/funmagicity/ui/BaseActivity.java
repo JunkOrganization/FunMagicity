@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.List;
 
 /**
  * Created by zhaoning on 2018/2/20.
