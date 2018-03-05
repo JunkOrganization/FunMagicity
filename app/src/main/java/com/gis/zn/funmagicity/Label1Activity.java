@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.SceneryActivity;
 
 import java.util.Arrays;
@@ -16,7 +17,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Label1Activity extends AppCompatActivity implements View.OnClickListener {
+public class Label1Activity extends BaseActivity implements View.OnClickListener {
 
     @Bind(R.id.label1_1)
     CheckBox label1_1;

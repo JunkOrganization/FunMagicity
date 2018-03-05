@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.SceneryActivity;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Label2Activity extends AppCompatActivity implements View.OnClickListener{
+public class Label2Activity extends BaseActivity implements View.OnClickListener{
 
     private boolean[] label1List = new boolean[10];
     private boolean[] label2List = new boolean[10];
@@ -44,10 +45,10 @@ public class Label2Activity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_label2);
         ButterKnife.bind(this);
 
-        label1List = getIntent().getExtras().getBooleanArray("label1_list");
-        System.out.print("Label2Activity label1List: ");
+        label1List = (boolean[])getIntent().getExtras().getBooleanArray("label1_list");
+        showLog("Label2Activity label1List: ");
         for (boolean b:label1List)
-            System.out.print(b+" ");
+            showLog(b+" ");
 
         initView();
 
@@ -63,7 +64,7 @@ public class Label2Activity extends AppCompatActivity implements View.OnClickLis
         new_label2_5.setOnClickListener(this);
         new_label2_random.setOnClickListener(this);
 
-        Arrays.fill(label1List, false);
+        Arrays.fill(label2List, false);
     }
 
     @Override

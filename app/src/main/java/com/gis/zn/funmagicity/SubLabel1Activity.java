@@ -8,12 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.gis.zn.funmagicity.ui.BaseActivity;
+import com.gis.zn.funmagicity.ui.SceneryActivity;
+
 import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SubLabel1Activity extends AppCompatActivity implements View.OnClickListener {
+public class SubLabel1Activity extends BaseActivity implements View.OnClickListener {
 
     private boolean[] label1List = new boolean[10];
     private boolean[] label2List = new boolean[10];
@@ -33,7 +36,7 @@ public class SubLabel1Activity extends AppCompatActivity implements View.OnClick
     CheckBox sub1_label_all;
 
     @Bind(R.id.btn_next_step_sub1)
-    Button bt_go;
+    Button btn_next_step_sub1;
     @Bind(R.id.fab)
     FloatingActionButton btn_fab;
 
@@ -44,22 +47,23 @@ public class SubLabel1Activity extends AppCompatActivity implements View.OnClick
         ButterKnife.bind(this);
         initView();
 
-        label1List = getIntent().getExtras().getBooleanArray("label1_list");
-        label2List = getIntent().getExtras().getBooleanArray("label2_list");
-        System.out.print("SubLabel1Activity label1List: ");
+        label1List = (boolean[])getIntent().getExtras().getBooleanArray("label1_list");
+        label2List = (boolean[])getIntent().getExtras().getBooleanArray("label2_list");
+        showLog("SubLabel1Activity label1List: ");
         for (boolean b:label1List)
-            System.out.print(b+" ");
-        System.out.print("label2List: ");
+            showLog(b+" ");
+        showLog("label2List: ");
         for (boolean b:label2List)
-            System.out.print(b+" ");
+            showLog(b+" ");
 
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.bt_go:
+            case R.id.btn_next_step_sub1:
                 if(label2List[2]==true){
+                    showLog("子标签一下一步（2被选中）");
                     Intent intent = new Intent(SubLabel1Activity.this, SubLabel2Activity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
@@ -68,7 +72,7 @@ public class SubLabel1Activity extends AppCompatActivity implements View.OnClick
                     break;
                 }
                 else {
-                    Intent intent = new Intent(SubLabel1Activity.this, SubLabel2Activity.class);
+                    Intent intent = new Intent(SubLabel1Activity.this, SceneryActivity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
                     intent.putExtra("sub1_label_list", sub1LabelList);
@@ -157,7 +161,7 @@ public class SubLabel1Activity extends AppCompatActivity implements View.OnClick
         sub1_label4.setOnClickListener(this);
         sub1_label5.setOnClickListener(this);
         sub1_label_all.setOnClickListener(this);
-        bt_go.setOnClickListener(this);
+        btn_next_step_sub1.setOnClickListener(this);
         btn_fab.setOnClickListener(this);
         Arrays.fill(sub1LabelList, false);
     }
