@@ -3,6 +3,7 @@ package com.gis.zn.funmagicity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.SceneryActivity;
 import com.gis.zn.funmagicity.ui.UserInfoActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -43,6 +45,8 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
     @Bind(R.id.listview_select)
     ListView listview_select;
 
+    @Bind(R.id.fab_selected)
+    FloatingActionButton fab_selected;
 
     private boolean[] label1List = new boolean[10];
     private boolean[] label2List = new boolean[10];
@@ -144,12 +148,18 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                 Intent intent = new Intent(SelectSpotsActivity.this, Main2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
+            case R.id.fab_selected:
+                Intent intent2 = new Intent(SelectSpotsActivity.this, SpotsOrderActivity.class);
+                intent2.putExtra("SpotList",(Serializable)mSceneryList);
+                startActivity(intent2);
+                break;
         }
     }
 
     private void initView() {
         user_info.setOnClickListener(this);
         back_select_spots.setOnClickListener(this);
+        fab_selected.setOnClickListener(this);
     }
 
     private void select_spots() {
@@ -195,7 +205,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
             @Override
             public void done(final List<Label1Mapping> object, BmobException e) {
                 if (e == null) {
-                    toast("label1查询成功：共" + object.size() + "条数据。");
+                    showLog("label1查询成功：共" + object.size() + "条数据。");
 
                     new Thread(new Runnable() {
                         @Override
@@ -289,7 +299,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
             @Override
             public void done(final List<Label1Mapping> object, BmobException e) {
                 if (e == null) {
-                    toast("label2查询成功：共" + object.size() + "条数据。");
+                    showLog("label2查询成功：共" + object.size() + "条数据。");
                     new Thread(new Runnable() {
                         @Override
                         public void run() {

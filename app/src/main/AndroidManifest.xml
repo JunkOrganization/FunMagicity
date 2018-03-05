@@ -61,6 +61,11 @@
         <activity
             android:name=".ui.TestActivity"
             android:theme="@style/AppTheme.NoActionBar.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.UserInfoActivity"
@@ -91,15 +96,17 @@
         <activity
             android:name=".Main2Activity"
             android:theme="@style/AppTheme.NoActionBar.FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".SelectSpotsActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar.YellowYellow">
+        </activity>
+        <activity
+            android:name=".SpotInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar.Float">
+        </activity>
+        <activity android:name=".SpotsOrderActivity">
         </activity>
     </application>
 

@@ -3,15 +3,19 @@ package com.gis.zn.funmagicity.entity;
 import java.io.Serializable;
 
 import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by zhaoning on 2018/2/26.
  */
 
-public class Scenery extends BmobObject  {
+public class Scenery extends BmobObject  implements Serializable{
     private int id;
     private String name;
     private String intro;
+
+    private BmobFile image;
+    private boolean isChecked;
 
     public int getId() {
         return id;
@@ -36,4 +40,21 @@ public class Scenery extends BmobObject  {
     public void setIntro(String intro) {
         this.intro = intro;
     }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
+    public BmobFile getImage() {
+        return image;
+    }
+
+    public void setImage(BmobFile image) {
+        this.image = image;
+    }
+
 }
