@@ -17,13 +17,13 @@ import butterknife.ButterKnife;
 
 import static com.baidu.mapapi.BMapManager.getContext;
 
-public class SpotInfoActivity extends BaseActivity implements View.OnClickListener{
+public class SpotInfoActivity extends BaseActivity implements View.OnClickListener {
 
     @Bind(R.id.spot_info_title)
     TextView spot_info_title;
     @Bind(R.id.spot_info_intro)
     TextView spot_info_intro;
-//    @Bind(R.id.spot_info_back)
+    //    @Bind(R.id.spot_info_back)
 //    FloatingActionButton spot_info_back;
     @Bind(R.id.img_spot_info)
     ImageView img_spot_info;
@@ -36,23 +36,23 @@ public class SpotInfoActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_spot_info);
         ButterKnife.bind(this);
 
-        scenery = (Scenery)getIntent().getSerializableExtra("scenery");
+        scenery = (Scenery) getIntent().getSerializableExtra("scenery");
         initView();
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
 //            case R.id.spot_info_back:
 //                finish();
 //                break;
         }
     }
 
-    void initView(){
+    void initView() {
         spot_info_title.setText(scenery.getName());
         spot_info_intro.setText(scenery.getIntro());
-        if(scenery.getImage()!=null){
+        if (scenery.getImage() != null) {
             Uri uri = Uri.parse(scenery.getImage().getUrl());
             Glide.with(getContext())
                     .load(uri)

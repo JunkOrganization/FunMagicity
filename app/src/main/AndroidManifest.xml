@@ -106,7 +106,8 @@
             android:name=".SpotInfoActivity"
             android:theme="@style/AppTheme.NoActionBar.Float">
         </activity>
-        <activity android:name=".SpotsOrderActivity">
+        <activity android:name=".SpotsOrderActivity"
+                  android:theme="@style/AppTheme.NoActionBar.YellowYellow">
         </activity>
     </application>
 

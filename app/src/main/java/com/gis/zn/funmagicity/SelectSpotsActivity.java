@@ -87,7 +87,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                     List<Label1Mapping> label1Mappings = (List<Label1Mapping>) msg.obj;
                     sceneryResult(label1Mappings, label1SpotsIdList);
                     showLog("SelectSpotsActivity searchByLabel1 " + label1SpotsIdList.size());
-                    if(label2SpotsIdList.size()!=0){
+                    if (label2SpotsIdList.size() != 0) {
                         random_and_select();
                         updateList();
                     }
@@ -96,7 +96,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                     List<Label1Mapping> label2Mappings = (List<Label1Mapping>) msg.obj;
                     sceneryResult(label2Mappings, label2SpotsIdList);
                     showLog("SelectSpotsActivity searchByLabel2 " + label2SpotsIdList.size());
-                    if(label1SpotsIdList.size()!=0){
+                    if (label1SpotsIdList.size() != 0) {
                         random_and_select();
                         updateList();
                     }
@@ -150,7 +150,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.fab_selected:
                 Intent intent2 = new Intent(SelectSpotsActivity.this, SpotsOrderActivity.class);
-                intent2.putExtra("SpotList",(Serializable)mSceneryList);
+                intent2.putExtra("SpotList", (Serializable) mSceneryList);
                 startActivity(intent2);
                 break;
         }
@@ -337,23 +337,23 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
             Label1Mapping labelMapping = (Label1Mapping) obj;
             list.add(labelMapping.getSceneryId());
         }
-        showLog("hashmap success "+hashMap1.size());
+        showLog("hashmap success " + hashMap1.size());
     }
 
-    private void random_and_select(){
+    private void random_and_select() {
         label1SpotsIdList.retainAll(label2SpotsIdList);
         Collections.shuffle(label1SpotsIdList);
-        showLog("random_and_select"+label1SpotsIdList.size());
-        for(Integer i :label1SpotsIdList){
+        showLog("random_and_select" + label1SpotsIdList.size());
+        for (Integer i : label1SpotsIdList) {
             showLog(i.toString());
         }
-        int limit = label1SpotsIdList.size()>10?10:label1SpotsIdList.size();
-        for(int i=0;i<limit;i++){
+        int limit = label1SpotsIdList.size() > 10 ? 10 : label1SpotsIdList.size();
+        for (int i = 0; i < limit; i++) {
             spotsIdList.add(label1SpotsIdList.get(i));
         }
     }
 
-    private void updateList(){
+    private void updateList() {
         for (final Integer i : spotsIdList) {
             BmobQuery<Scenery> query = new BmobQuery<Scenery>();
             int a = i.intValue();

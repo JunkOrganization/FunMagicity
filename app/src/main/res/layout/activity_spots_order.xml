@@ -1,10 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.gis.zn.funmagicity.SpotsOrderActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:background="@drawable/bg_main"
+              android:orientation="vertical"
+              android:weightSum="100">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:background="@color/colorYellow"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <ImageView
+            android:id="@+id/back_order_spots"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="5dp"
+            android:src="@drawable/icon_home"/>
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="6"-->
+        <!--android:text="FUN 魔都"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="18dp"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:fontFamily="sans-serif"-->
+        <!--android:textStyle="italic|bold"/>-->
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:padding="10dp"
+            android:src="@drawable/title_whiter"/>
+
+        <ImageView
+            android:id="@+id/user_info_order_spots"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="5dp"
+            android:src="@drawable/icon_user"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="94">
+        <ListView
+            android:id="@+id/listview_ordered"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:src="@drawable/right"
+            android:transitionName="loginFab"
+            app:rippleColor="@color/colorPrimary"
+            android:layout_margin="20dp"
+            android:layout_gravity="right|bottom"
+            android:elevation="8dp"/>
+    </FrameLayout>
+
+</LinearLayout>
