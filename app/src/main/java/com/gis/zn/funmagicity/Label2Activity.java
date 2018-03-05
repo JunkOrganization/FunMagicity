@@ -71,6 +71,12 @@ public class Label2Activity extends BaseActivity implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_next_step_label2:
+                if(!new_label2_1.isChecked()&&!new_label2_2.isChecked()&&!new_label2_3.isChecked()&&
+                        !new_label2_4.isChecked()&&!new_label2_5.isChecked()&&!new_label2_random.isChecked())
+                {
+                    toast("旅行风格请至少选择一项！");
+                    break;
+                }
                 if(new_label2_1.isChecked()){
                     Intent intent = new Intent(Label2Activity.this, SubLabel1Activity.class);
                     intent.putExtra("label1_list", label1List);
@@ -86,7 +92,7 @@ public class Label2Activity extends BaseActivity implements View.OnClickListener
                     break;
                 }
                 else {
-                    Intent intent = new Intent(Label2Activity.this, SceneryActivity.class);
+                    Intent intent = new Intent(Label2Activity.this, SelectSpotsActivity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
                     startActivity(intent);

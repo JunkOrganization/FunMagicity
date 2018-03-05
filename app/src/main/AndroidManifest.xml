@@ -39,11 +39,6 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -85,9 +80,26 @@
             android:name=".Label2Activity"
             android:theme="@style/AppTheme.NoActionBar.Gray">
         </activity>
-        <activity android:name=".SubLabel1Activity">
+        <activity
+            android:name=".SubLabel1Activity"
+            android:theme="@style/AppTheme.NoActionBar.Yellow">
         </activity>
-        <activity android:name=".SubLabel2Activity">
+        <activity
+            android:name=".SubLabel2Activity"
+            android:theme="@style/AppTheme.NoActionBar.Gray">
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectSpotsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

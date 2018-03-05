@@ -53,6 +53,12 @@ public class Label1Activity extends BaseActivity implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_next_step_label1:
+                if(!label1_1.isChecked()&&!label1_2.isChecked()&&!label1_3.isChecked()&&
+                        !label1_4.isChecked()&&!label1_5.isChecked()&&!label1_random.isChecked())
+                {
+                    toast("出行小伙伴请至少选择一项！");
+                    break;
+                }
                 Intent intent = new Intent(Label1Activity.this, Label2Activity.class);
                 intent.putExtra("label1_list", label1List);
                 startActivity(intent);

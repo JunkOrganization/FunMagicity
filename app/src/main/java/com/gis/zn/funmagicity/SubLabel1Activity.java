@@ -62,6 +62,12 @@ public class SubLabel1Activity extends BaseActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_next_step_sub1:
+                if(!sub1_label1.isChecked()&&!sub1_label2.isChecked()&&!sub1_label3.isChecked()&&
+                        !sub1_label4.isChecked()&&!sub1_label5.isChecked()&&!sub1_label_all.isChecked())
+                {
+                    toast("特色美食请至少选择一项！");
+                    break;
+                }
                 if(label2List[2]==true){
                     showLog("子标签一下一步（2被选中）");
                     Intent intent = new Intent(SubLabel1Activity.this, SubLabel2Activity.class);
@@ -72,7 +78,7 @@ public class SubLabel1Activity extends BaseActivity implements View.OnClickListe
                     break;
                 }
                 else {
-                    Intent intent = new Intent(SubLabel1Activity.this, SceneryActivity.class);
+                    Intent intent = new Intent(SubLabel1Activity.this, SelectSpotsActivity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
                     intent.putExtra("sub1_label_list", sub1LabelList);
