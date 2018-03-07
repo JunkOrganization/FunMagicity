@@ -24,11 +24,28 @@
     <include layout="@layout/content_routing"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add"/>
+        android:id="@+id/fab_down"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:fabSize="normal"
+        android:src="@drawable/icon_down"
+        android:transitionName="loginFab"
+        app:rippleColor="@color/colorPrimary"
+        android:layout_margin="20dp"
+        android:layout_gravity="left|bottom"
+        android:elevation="8dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_next_line"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:fabSize="normal"
+        android:src="@drawable/icon_down"
+        android:transitionName="loginFab"
+        app:rippleColor="@color/colorPrimary"
+        android:layout_margin="20dp"
+        android:layout_gravity="right|bottom"
+        android:elevation="8dp"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

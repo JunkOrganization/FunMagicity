@@ -41,9 +41,11 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="0HvZgrnYz8GZSwHRfg1H3Hu7QIg5YNce"/>
+        <!--<meta-data-->
+            <!--android:name="com.baidu.lbsapi.API_KEY"-->
+            <!--android:value="0HvZgrnYz8GZSwHRfg1H3Hu7QIg5YNce"/>-->
+
+            <meta-data android:name="TencentMapSDK" android:value="MEIBZ-DYZWF-PSPJS-NC22O-MAV7S-LEFUR" />
 
         <activity
             android:name=".ui.RoutingActivity"

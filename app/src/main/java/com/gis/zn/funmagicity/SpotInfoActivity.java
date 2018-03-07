@@ -15,8 +15,6 @@ import com.gis.zn.funmagicity.ui.BaseActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.baidu.mapapi.BMapManager.getContext;
-
 public class SpotInfoActivity extends BaseActivity implements View.OnClickListener {
 
     @Bind(R.id.spot_info_title)
@@ -54,7 +52,7 @@ public class SpotInfoActivity extends BaseActivity implements View.OnClickListen
         spot_info_intro.setText(scenery.getIntro());
         if (scenery.getImage() != null) {
             Uri uri = Uri.parse(scenery.getImage().getUrl());
-            Glide.with(getContext())
+            Glide.with(getApplicationContext())
                     .load(uri)
                     .placeholder(R.drawable.test)//图片加载出来前，显示的图片
                     .error(R.drawable.test)//图片加载失败后，显示的图片
