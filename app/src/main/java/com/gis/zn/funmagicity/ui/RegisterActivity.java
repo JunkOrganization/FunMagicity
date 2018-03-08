@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.gis.zn.funmagicity.Main2Activity;
 import com.gis.zn.funmagicity.MainActivity;
 import com.gis.zn.funmagicity.R;
 import com.gis.zn.funmagicity.entity.MyUser;
@@ -84,7 +85,7 @@ public class RegisterActivity extends BaseActivity {
                     // TODO Auto-generated method stub
                     progress.dismiss();
                     toast("注册成功---用户名："+user.getUsername());
-                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this,Main2Activity.class);
                     intent.putExtra("from", "login");
                     startActivity(intent);
                     finish();

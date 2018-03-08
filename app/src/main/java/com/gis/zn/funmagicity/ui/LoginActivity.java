@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.gis.zn.funmagicity.Main2Activity;
 import com.gis.zn.funmagicity.MainActivity;
 import com.gis.zn.funmagicity.R;
 import com.gis.zn.funmagicity.entity.MyUser;
@@ -80,7 +81,7 @@ public class LoginActivity extends BaseActivity {
                 progress.dismiss();
                 if(ex == null){
                     toast("登录成功---用户名："+ myUser.getUsername());
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this,Main2Activity.class);
                     intent.putExtra("from", "login");
                     startActivity(intent);
                     finish();

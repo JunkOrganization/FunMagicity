@@ -46,6 +46,8 @@ public class SpotsOrderActivity extends BaseActivity implements View.OnClickList
         mSceneryList = (List<Scenery>) getIntent().getSerializableExtra("SpotList");
         selectSpots();
 
+        initView();
+
         SpotOrderAdapter sceneryAdapter = new SpotOrderAdapter(SpotsOrderActivity.this, R.layout.item_spot_order, mScenerySelectedList);
         listview_ordered.setAdapter(sceneryAdapter);
 
