@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gis.zn.funmagicity.entity.Scenery;
 import com.gis.zn.funmagicity.entity.SpotOrderAdapter;
@@ -52,7 +53,25 @@ public class SpotsOrderActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(SpotsOrderActivity.this, RoutingActivity.class);
-                startActivity(intent);
+                if(mScenerySelectedList.size()>1){
+                    Scenery start;
+                    Scenery end;
+                    if(i<mScenerySelectedList.size()-1){
+                        start=mScenerySelectedList.get(i);
+                        end=mScenerySelectedList.get(i+1);
+                    }
+                    else {
+                        start=mScenerySelectedList.get(i-1);
+                        end=mScenerySelectedList.get(i);
+                    }
+                    intent.putExtra("start",start);
+                    intent.putExtra("end",end);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(SpotsOrderActivity.this,"请至少选择两个景点才可生成路线", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }

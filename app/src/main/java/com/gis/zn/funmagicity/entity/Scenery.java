@@ -14,6 +14,9 @@ public class Scenery extends BmobObject  implements Serializable{
     private String name;
     private String intro;
 
+    private double Longitude;
+    private double latitude;
+
     private BmobFile image;
     private boolean isChecked;
 
@@ -57,4 +60,19 @@ public class Scenery extends BmobObject  implements Serializable{
         this.image = image;
     }
 
+    public double getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        Longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 }

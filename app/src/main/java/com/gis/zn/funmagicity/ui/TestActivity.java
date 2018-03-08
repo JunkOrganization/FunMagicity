@@ -66,8 +66,8 @@ public class TestActivity extends BaseActivity {
         fab_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(TestActivity.this, RoutingActivity.class);
-//                intent2.putExtra("SpotList",(Serializable)mSceneryList);
+                Intent intent2 = new Intent(TestActivity.this, SpotsOrderActivity.class);
+                intent2.putExtra("SpotList",(Serializable)mSceneryList);
                 startActivity(intent2);
             }
         });
