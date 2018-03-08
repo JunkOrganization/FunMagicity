@@ -64,7 +64,6 @@ public class SceneryAdapter extends ArrayAdapter<Scenery> {
 
         BmobFile bmobfile = scenery.getImage();
         if(bmobfile!= null){
-            Log.i("bmobfile",bmobfile.getUrl()+" | "+bmobfile.getFileUrl());
             Uri uri = Uri.parse(bmobfile.getUrl());
             Glide.with(getContext())
                     .load(uri)

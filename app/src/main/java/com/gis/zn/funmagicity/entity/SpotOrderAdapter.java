@@ -43,7 +43,6 @@ public class SpotOrderAdapter extends ArrayAdapter<Scenery> {
             viewHolder = new SpotOrderAdapter.ViewHolder();
             viewHolder.sceneryImage=(ImageView)view.findViewById(R.id.spot_order_img);
             viewHolder.sceneryName=(TextView)view.findViewById(R.id.spot_order_name);
-            viewHolder.sceneryPath=(TextView)view.findViewById(R.id.spot_order_path);
             view.setTag(viewHolder);
         }
         else {
@@ -51,7 +50,6 @@ public class SpotOrderAdapter extends ArrayAdapter<Scenery> {
             viewHolder=(SpotOrderAdapter.ViewHolder)view.getTag();//重新获取viewHolder
         }
         viewHolder.sceneryName.setText(scenery.getName());
-        viewHolder.sceneryPath.setText("");
 
         BmobFile bmobfile = scenery.getImage();
         if(bmobfile!= null){
@@ -71,7 +69,6 @@ public class SpotOrderAdapter extends ArrayAdapter<Scenery> {
     class ViewHolder{
         ImageView sceneryImage;
         TextView sceneryName;
-        TextView sceneryPath;
 
     }
 }

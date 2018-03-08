@@ -76,7 +76,6 @@ public class ChangeAdapter extends BaseAdapter implements View.OnClickListener {
             viewHolder = new ViewHolder();
             viewHolder.sceneryImage=(ImageView)convertView.findViewById(R.id.spot_order_img);
             viewHolder.sceneryName=(TextView)convertView.findViewById(R.id.spot_order_name);
-            viewHolder.sceneryPath=(TextView)convertView.findViewById(R.id.spot_order_path);
             viewHolder.up = (ImageView) convertView.findViewById(R.id.list_item_up);
             convertView.setTag(R.id.tag_viewholder, viewHolder);
         } else {
@@ -85,7 +84,6 @@ public class ChangeAdapter extends BaseAdapter implements View.OnClickListener {
         viewHolder.sceneryName.setText(itemList.get(position).getName());
         BmobFile bmobfile = itemList.get(position).getImage();
         if(bmobfile!= null){
-            Log.i("bmobfile",bmobfile.getUrl()+" | "+bmobfile.getFileUrl());
             Uri uri = Uri.parse(bmobfile.getUrl());
             Glide.with(getContext())
                     .load(uri)
@@ -112,6 +110,9 @@ public class ChangeAdapter extends BaseAdapter implements View.OnClickListener {
         //设置item向下移动的点击时间并标志其位置
         viewHolder.up.setOnClickListener(this);
         viewHolder.up.setTag(position);
+
+        viewHolder.sceneryName.setOnClickListener(this);
+        viewHolder.sceneryName.setTag(position);
 
         //设置整个item的点击时间并标志其位置
         convertView.setOnClickListener(this);
