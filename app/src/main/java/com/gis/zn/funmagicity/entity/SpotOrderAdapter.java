@@ -51,7 +51,7 @@ public class SpotOrderAdapter extends ArrayAdapter<Scenery> {
             viewHolder=(SpotOrderAdapter.ViewHolder)view.getTag();//重新获取viewHolder
         }
         viewHolder.sceneryName.setText(scenery.getName());
-        viewHolder.sceneryPath.setText(scenery.getIntro());
+        viewHolder.sceneryPath.setText("");
 
         BmobFile bmobfile = scenery.getImage();
         if(bmobfile!= null){

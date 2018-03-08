@@ -405,7 +405,7 @@ public class RoutingActivity extends MapActivity {
     protected void drawSolidLine(List<Location> locations) {
         tencentMap.addPolyline(new PolylineOptions().
                 addAll(getLatLngs(locations)).
-                color(0xff2200ff));
+                color(0xffFF8432));
     }
 
     /**
@@ -416,7 +416,7 @@ public class RoutingActivity extends MapActivity {
     protected void drawDotLine(List<Location> locations) {
         tencentMap.addPolyline(new PolylineOptions().
                 addAll(getLatLngs(locations)).
-                color(0xff2200ff).
+                color(0xffFF8432).
                 setDottedLine(true));
     }
 
