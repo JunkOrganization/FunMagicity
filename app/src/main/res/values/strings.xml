@@ -38,4 +38,7 @@
 
     <string name="label1">出行小伙伴</string>
     <string name="label2">旅行风格</string>
+
+    <item type="id" name="tag_viewholder"></item>
+    <item type="id" name="tag_item_click"></item>
 </resources>
