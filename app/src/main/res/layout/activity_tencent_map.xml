@@ -14,7 +14,7 @@
             android:layout_height="fill_parent" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_down1"
+            android:id="@+id/fab_walk"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:fabSize="normal"

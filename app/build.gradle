@@ -53,4 +53,5 @@ dependencies {
     //    implementation files('libs/Baidu LBS_Android.jar')
     compile 'com.tencent.map:tencent-map-vector-sdk:latest.release'
     implementation files('libs/TencentMapSDK_Raster_v_1.2.8.1.c02ec64.jar')
+    implementation files('libs/TencentMapSearch_v1.1.7.1.3e04ee1.jar')
 }
