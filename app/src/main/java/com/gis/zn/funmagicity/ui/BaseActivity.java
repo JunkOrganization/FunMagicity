@@ -10,6 +10,10 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.gis.zn.funmagicity.entity.Scenery;
+
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +25,13 @@ public class BaseActivity extends AppCompatActivity {
 
     protected ListView mListview;
     protected BaseAdapter mAdapter;
+
+    public static Date date_start ;
+    public static Date date_end ;
+    public static int days;
+    public static int currentDay;
+
+    public static List<Scenery> mSceneryBaseList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +69,39 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public static void showLog(String msg) {
-        Log.i("BmobTest", msg);
+        Log.e("BmobTest", msg);
+    }
+
+
+    public Date getDate_start() {
+        return date_start;
+    }
+
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
+    }
+
+    public Date getDate_end() {
+        return date_end;
+    }
+
+    public void setDate_end(Date date_end) {
+        this.date_end = date_end;
+    }
+
+    public int getDays() {
+        return days;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
+    }
+
+    public int getCurrentDay() {
+        return currentDay;
+    }
+
+    public void setCurrentDay(int currentDay) {
+        this.currentDay = currentDay;
     }
 }

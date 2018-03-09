@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.gis.zn.funmagicity.entity.Label1Mapping;
 import com.gis.zn.funmagicity.entity.Scenery;
@@ -38,6 +39,8 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
     ImageView user_info;
     @Bind(R.id.back_select_spots)
     ImageView back_select_spots;
+    @Bind(R.id.date_title)
+    TextView date_title;
 
     private ArrayList<Integer> list;
     private ArrayList<Integer> listop = new ArrayList<>();
@@ -124,18 +127,18 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
             sub1LabelList = (boolean[]) getIntent().getExtras().getBooleanArray("sub1_label_list");
         if (label2List[2])
             sub2LabelList = (boolean[]) getIntent().getExtras().getBooleanArray("sub2_label_list");
-        showLog("SelectSpotsActivity label1List: ");
-        for (boolean b : label1List)
-            showLog(b + " ");
-        showLog("label2List: ");
-        for (boolean b : label2List)
-            showLog(b + " ");
-        showLog("sub1_label_list: ");
-//        for (boolean b : sub1LabelList)
-        showLog(sub1LabelList + " ");
-        showLog("sub2_label_list: ");
-//        for (boolean b : sub2LabelList)
-        showLog(sub1LabelList + " ");
+//        showLog("SelectSpotsActivity label1List: ");
+//        for (boolean b : label1List)
+//            showLog(b + " ");
+//        showLog("label2List: ");
+//        for (boolean b : label2List)
+//            showLog(b + " ");
+//        showLog("sub1_label_list: ");
+////        for (boolean b : sub1LabelList)
+//        showLog(sub1LabelList + " ");
+//        showLog("sub2_label_list: ");
+////        for (boolean b : sub2LabelList)
+//        showLog(sub1LabelList + " ");
 
         select_spots();
     }
@@ -168,6 +171,8 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
         user_info.setOnClickListener(this);
         back_select_spots.setOnClickListener(this);
         fab_selected.setOnClickListener(this);
+        String title = "出行第"+currentDay+"天";
+        date_title.setText(title);
     }
 
     private void select_spots() {

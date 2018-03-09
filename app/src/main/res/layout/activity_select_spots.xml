@@ -34,12 +34,16 @@
         <!--android:fontFamily="sans-serif"-->
         <!--android:textStyle="italic|bold"/>-->
 
-        <ImageView
+        <TextView
+            android:id="@+id/date_title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            android:padding="10dp"
-            android:src="@drawable/title_whiter"/>
+            android:padding="5dp"
+            android:text="第一天景点选择"
+            android:textSize="15dp"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"/>
 
         <ImageView
             android:id="@+id/user_info_select_spots"

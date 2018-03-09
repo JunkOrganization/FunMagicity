@@ -37,7 +37,7 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_go:
-                startActivity(new Intent(Main2Activity.this, Label1Activity.class));
+                startActivity(new Intent(Main2Activity.this, DateActivity.class));
                 break;
             case R.id.main_user_info:
                 BmobUser currentUser = BmobUser.getCurrentUser();
@@ -58,6 +58,12 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener 
         btn_go.setOnClickListener(this);
         main_user_info.setOnClickListener(this);
         BmobUser currentUser = BmobUser.getCurrentUser();
-        main_uesename.setText(currentUser.getUsername());
+        if(currentUser==null)
+        {
+            startActivity(new Intent(Main2Activity.this,LoginActivity.class));
+        }
+        else {
+            main_uesename.setText(currentUser.getUsername());
+        }
     }
 }

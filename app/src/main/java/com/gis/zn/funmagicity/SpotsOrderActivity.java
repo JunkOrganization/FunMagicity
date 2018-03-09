@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gis.zn.funmagicity.entity.ChangeAdapter;
+import com.gis.zn.funmagicity.entity.Label1;
 import com.gis.zn.funmagicity.entity.Scenery;
 import com.gis.zn.funmagicity.entity.SpotOrderAdapter;
 import com.gis.zn.funmagicity.ui.BaseActivity;
@@ -95,11 +96,9 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
             @Override
             public void onClick(View view) {
                 BmobUser currentUser = BmobUser.getCurrentUser();
-                if(currentUser==null)
-                {
+                if (currentUser == null) {
                     startActivity(new Intent(SpotsOrderActivity.this, LoginActivity.class));
-                }
-                else {
+                } else {
                     startActivity(new Intent(SpotsOrderActivity.this, UserInfoActivity.class));
 
                 }
@@ -111,6 +110,24 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
             public void onClick(View view) {
                 Intent intent = new Intent(SpotsOrderActivity.this, Main2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+            }
+        });
+
+        Log.e("DateEndActivity", String.valueOf(days));
+        Log.e("DateEndActivity", String.valueOf(currentDay));
+
+        fab_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentDay <= days) {
+                    currentDay++;
+                    Intent intent3 = new Intent(SpotsOrderActivity.this, Label1Activity.class);
+                    startActivity(intent3);
+                    showLog("currentDay <= days"+currentDay+"|"+days);
+                } else {
+                    Toast.makeText(SpotsOrderActivity.this, "您已经完成此次定制", Toast.LENGTH_LONG).show();
+
+                }
             }
         });
     }
@@ -209,7 +226,6 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
                     Toast.makeText(SpotsOrderActivity.this, "请至少选择两个景点才可生成路线", Toast.LENGTH_LONG).show();
                 }
                 break;
-
             default:
                 break;
         }

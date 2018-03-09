@@ -114,7 +114,15 @@
             android:name=".SpotsOrderActivity"
             android:theme="@style/AppTheme.NoActionBar.YellowYellow">
         </activity>
-        <activity android:name=".DateActivity">
+        <activity
+            android:name=".DateActivity"
+            android:label="开始日期选择"
+            android:theme="@style/AppTheme.Grey">
+        </activity>
+        <activity android:name=".DateEndActivity"
+                  android:label="结束日期选择"
+                  android:theme="@style/AppTheme.Grey">
+
         </activity>
     </application>
 
