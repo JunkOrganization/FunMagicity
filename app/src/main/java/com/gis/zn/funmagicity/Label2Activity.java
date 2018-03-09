@@ -16,7 +16,7 @@ import java.util.Arrays;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Label2Activity extends BaseActivity implements View.OnClickListener{
+public class Label2Activity extends BaseActivity implements View.OnClickListener {
 
     private boolean[] label1List = new boolean[10];
     private boolean[] label2List = new boolean[10];
@@ -45,16 +45,16 @@ public class Label2Activity extends BaseActivity implements View.OnClickListener
         setContentView(R.layout.activity_label2);
         ButterKnife.bind(this);
 
-        label1List = (boolean[])getIntent().getExtras().getBooleanArray("label1_list");
+        label1List = (boolean[]) getIntent().getExtras().getBooleanArray("label1_list");
         showLog("Label2Activity label1List: ");
-        for (boolean b:label1List)
-            showLog(b+" ");
+        for (boolean b : label1List)
+            showLog(b + " ");
 
         initView();
 
     }
 
-    void initView(){
+    void initView() {
         btn_next_step_label2.setOnClickListener(this);
         btn_fab.setOnClickListener(this);
         new_label2_1.setOnClickListener(this);
@@ -69,29 +69,26 @@ public class Label2Activity extends BaseActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_next_step_label2:
-                if(!new_label2_1.isChecked()&&!new_label2_2.isChecked()&&!new_label2_3.isChecked()&&
-                        !new_label2_4.isChecked()&&!new_label2_5.isChecked()&&!new_label2_random.isChecked())
-                {
+                if (!new_label2_1.isChecked() && !new_label2_2.isChecked() && !new_label2_3.isChecked() &&
+                        !new_label2_4.isChecked() && !new_label2_5.isChecked() && !new_label2_random.isChecked()) {
                     toast("旅行风格请至少选择一项！");
                     break;
                 }
-                if(new_label2_1.isChecked()){
+                if (new_label2_1.isChecked()) {
                     Intent intent = new Intent(Label2Activity.this, SubLabel1Activity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
                     startActivity(intent);
                     break;
-                }
-                else if(!new_label2_1.isChecked()&&new_label2_2.isChecked()){
+                } else if (!new_label2_1.isChecked() && new_label2_2.isChecked()) {
                     Intent intent = new Intent(Label2Activity.this, SubLabel2Activity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
                     startActivity(intent);
                     break;
-                }
-                else {
+                } else {
                     Intent intent = new Intent(Label2Activity.this, SelectSpotsActivity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);
@@ -104,65 +101,57 @@ public class Label2Activity extends BaseActivity implements View.OnClickListener
             case R.id.new_label2_1:
                 if (new_label2_1.isChecked())
                     label2List[1] = true;
-                else
-                {
+                else {
                     new_label2_random.setChecked(false);
-                    label2List[6]=false;
+                    label2List[6] = false;
                     label2List[1] = false;
                 }
                 break;
             case R.id.new_label2_2:
                 if (new_label2_2.isChecked())
                     label2List[2] = true;
-                else
-                {
+                else {
                     new_label2_random.setChecked(false);
-                    label2List[6]=false;
+                    label2List[6] = false;
                     label2List[2] = false;
                 }
                 break;
             case R.id.new_label2_3:
                 if (new_label2_3.isChecked())
                     label2List[3] = true;
-                else
-                {
+                else {
                     new_label2_random.setChecked(false);
-                    label2List[6]=false;
+                    label2List[6] = false;
                     label2List[3] = false;
                 }
                 break;
             case R.id.new_label2_4:
                 if (new_label2_4.isChecked())
                     label2List[4] = true;
-                else
-                {
+                else {
                     new_label2_random.setChecked(false);
-                    label2List[6]=false;
+                    label2List[6] = false;
                     label2List[4] = false;
                 }
                 break;
             case R.id.new_label2_5:
                 if (new_label2_5.isChecked())
                     label2List[5] = true;
-                else
-                {
+                else {
                     new_label2_random.setChecked(false);
-                    label2List[6]=false;
+                    label2List[6] = false;
                     label2List[5] = false;
                 }
                 break;
             case R.id.new_label2_random:
-                if (new_label2_random.isChecked())
-                {
+                if (new_label2_random.isChecked()) {
                     new_label2_1.setChecked(true);
                     new_label2_2.setChecked(true);
                     new_label2_3.setChecked(true);
                     new_label2_4.setChecked(true);
                     new_label2_5.setChecked(true);
                     Arrays.fill(label2List, true);
-                }
-                else
-                {
+                } else {
                     new_label2_1.setChecked(false);
                     new_label2_2.setChecked(false);
                     new_label2_3.setChecked(false);

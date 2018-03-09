@@ -171,7 +171,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
         user_info.setOnClickListener(this);
         back_select_spots.setOnClickListener(this);
         fab_selected.setOnClickListener(this);
-        String title = "出行第"+currentDay+"天";
+        String title = "出行第" + currentDay + "天";
         date_title.setText(title);
     }
 

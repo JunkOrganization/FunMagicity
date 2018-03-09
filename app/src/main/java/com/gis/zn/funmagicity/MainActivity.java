@@ -385,24 +385,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private void sceneryResultFinal(){
-        for(Integer i:sceneryArray){
+    private void sceneryResultFinal() {
+        for (Integer i : sceneryArray) {
             BmobQuery<Scenery> query = new BmobQuery<Scenery>();
             query.addWhereEqualTo("id", i);
 //执行查询方法
             query.findObjects(new FindListener<Scenery>() {
                 @Override
                 public void done(List<Scenery> object, BmobException e) {
-                    if(e==null){
+                    if (e == null) {
                         for (Scenery scenery : object) {
                             sceneryList.add(scenery);
                         }
-                    }else{
-                        Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                    } else {
+                        Log.i("bmob", "失败：" + e.getMessage() + "," + e.getErrorCode());
                     }
                 }
             });
         }
-        showLog("sceneryResultFinal:"+sceneryList.size());
+        showLog("sceneryResultFinal:" + sceneryList.size());
     }
 }

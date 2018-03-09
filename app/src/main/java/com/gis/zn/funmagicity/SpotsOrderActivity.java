@@ -123,7 +123,7 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
                     currentDay++;
                     Intent intent3 = new Intent(SpotsOrderActivity.this, Label1Activity.class);
                     startActivity(intent3);
-                    showLog("currentDay <= days"+currentDay+"|"+days);
+                    showLog("currentDay <= days" + currentDay + "|" + days);
                 } else {
                     Toast.makeText(SpotsOrderActivity.this, "您已经完成此次定制", Toast.LENGTH_LONG).show();
 

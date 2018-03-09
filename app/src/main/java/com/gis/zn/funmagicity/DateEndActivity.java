@@ -33,28 +33,28 @@ public class DateEndActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.datePicker_end:
                 break;
             case R.id.fab_date_end:
-                int y=datePicker_end.getYear();
-                int m=datePicker_end.getMonth()+1;
-                int d=datePicker_end.getDayOfMonth();
-                Date date=new Date(y,m,d);
-                date_end=date;
+                int y = datePicker_end.getYear();
+                int m = datePicker_end.getMonth() + 1;
+                int d = datePicker_end.getDayOfMonth();
+                Date date = new Date(y, m, d);
+                date_end = date;
 
-                long day=(date.getTime()-date_start.getTime())/(24*60*60*1000)+1;
-                days=(int)day;
-                currentDay=1;
+                long day = (date.getTime() - date_start.getTime()) / (24 * 60 * 60 * 1000) + 1;
+                days = (int) day;
+                currentDay = 1;
                 Log.e("DateEndActivity", String.valueOf(days));
                 Log.e("DateEndActivity", String.valueOf(currentDay));
-                Intent intent = new Intent(DateEndActivity.this,Label1Activity.class);
+                Intent intent = new Intent(DateEndActivity.this, Label1Activity.class);
                 startActivity(intent);
                 break;
         }
     }
 
-    private void initView(){
+    private void initView() {
         fab_date_end.setOnClickListener(this);
     }
 }

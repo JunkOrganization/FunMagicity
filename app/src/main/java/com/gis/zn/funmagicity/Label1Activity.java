@@ -53,9 +53,8 @@ public class Label1Activity extends BaseActivity implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_next_step_label1:
-                if(!label1_1.isChecked()&&!label1_2.isChecked()&&!label1_3.isChecked()&&
-                        !label1_4.isChecked()&&!label1_5.isChecked()&&!label1_random.isChecked())
-                {
+                if (!label1_1.isChecked() && !label1_2.isChecked() && !label1_3.isChecked() &&
+                        !label1_4.isChecked() && !label1_5.isChecked() && !label1_random.isChecked()) {
                     toast("出行小伙伴请至少选择一项！");
                     break;
                 }
@@ -69,50 +68,45 @@ public class Label1Activity extends BaseActivity implements View.OnClickListener
             case R.id.label1_1:
                 if (label1_1.isChecked())
                     label1List[1] = true;
-                else
-                {
+                else {
                     label1_random.setChecked(false);
-                    label1List[6]=false;
+                    label1List[6] = false;
                     label1List[1] = false;
                 }
                 break;
             case R.id.label1_2:
                 if (label1_2.isChecked())
                     label1List[2] = true;
-                else
-                {
+                else {
                     label1_random.setChecked(false);
-                    label1List[6]=false;
+                    label1List[6] = false;
                     label1List[2] = false;
                 }
                 break;
             case R.id.label1_3:
                 if (label1_3.isChecked())
                     label1List[3] = true;
-                else
-                {
+                else {
                     label1_random.setChecked(false);
-                    label1List[6]=false;
+                    label1List[6] = false;
                     label1List[3] = false;
                 }
                 break;
             case R.id.label1_4:
                 if (label1_4.isChecked())
                     label1List[4] = true;
-                else
-                {
+                else {
                     label1_random.setChecked(false);
-                    label1List[6]=false;
+                    label1List[6] = false;
                     label1List[4] = false;
                 }
                 break;
             case R.id.label1_5:
                 if (label1_5.isChecked())
                     label1List[5] = true;
-                else
-                {
+                else {
                     label1_random.setChecked(false);
-                    label1List[6]=false;
+                    label1List[6] = false;
                     label1List[5] = false;
                 }
                 break;
