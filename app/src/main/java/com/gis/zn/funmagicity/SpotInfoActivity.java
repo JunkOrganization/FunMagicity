@@ -44,6 +44,7 @@ public class SpotInfoActivity extends BaseActivity implements View.OnClickListen
 //            case R.id.spot_info_back:
 //                finish();
 //                break;
+
         }
     }
 
