@@ -15,7 +15,7 @@ import java.util.Date;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class DateActivity extends BaseActivity implements View.OnClickListener{
+public class DateActivity extends BaseActivity implements View.OnClickListener {
 
     @Bind(R.id.datePicker_start)
     DatePicker datePicker_start;
@@ -32,22 +32,22 @@ public class DateActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.datePicker_start:
                 break;
             case R.id.fab_date_start:
-                int y=datePicker_start.getYear();
-                int m=datePicker_start.getMonth()+1;
-                int d=datePicker_start.getDayOfMonth();
-                Date date=new Date(y,m,d);
-                date_start=date;
-                Intent intent = new Intent(DateActivity.this,DateEndActivity.class);
+                int y = datePicker_start.getYear();
+                int m = datePicker_start.getMonth() + 1;
+                int d = datePicker_start.getDayOfMonth();
+                Date date = new Date(y, m, d);
+                date_start = date;
+                Intent intent = new Intent(DateActivity.this, DateEndActivity.class);
                 startActivity(intent);
                 break;
         }
     }
 
-    private void initView(){
+    private void initView() {
         fab_date_start.setOnClickListener(this);
     }
 
