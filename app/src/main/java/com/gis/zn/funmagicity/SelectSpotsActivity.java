@@ -15,6 +15,7 @@ import com.gis.zn.funmagicity.entity.Label1Mapping;
 import com.gis.zn.funmagicity.entity.Scenery;
 import com.gis.zn.funmagicity.entity.SceneryAdapter;
 import com.gis.zn.funmagicity.ui.BaseActivity;
+import com.gis.zn.funmagicity.ui.LoginActivity;
 import com.gis.zn.funmagicity.ui.SceneryActivity;
 import com.gis.zn.funmagicity.ui.UserInfoActivity;
 
@@ -27,6 +28,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -142,8 +144,14 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.user_info_select_spots:
-                startActivity(new Intent(SelectSpotsActivity.this, UserInfoActivity.class));
-                break;
+                BmobUser currentUser = BmobUser.getCurrentUser();
+                if (currentUser == null) {
+                    startActivity(new Intent(SelectSpotsActivity.this, LoginActivity.class));
+                    break;
+                } else {
+                    startActivity(new Intent(SelectSpotsActivity.this, UserInfoActivity.class));
+                    break;
+                }
             case R.id.back_select_spots:
                 Intent intent = new Intent(SelectSpotsActivity.this, Main2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

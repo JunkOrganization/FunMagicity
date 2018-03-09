@@ -84,7 +84,7 @@ public class Label2Activity extends BaseActivity implements View.OnClickListener
                     startActivity(intent);
                     break;
                 }
-                else if(new_label2_2.isChecked()){
+                else if(!new_label2_1.isChecked()&&new_label2_2.isChecked()){
                     Intent intent = new Intent(Label2Activity.this, SubLabel2Activity.class);
                     intent.putExtra("label1_list", label1List);
                     intent.putExtra("label2_list", label2List);

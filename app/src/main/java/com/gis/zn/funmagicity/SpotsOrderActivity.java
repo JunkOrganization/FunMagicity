@@ -16,6 +16,7 @@ import com.gis.zn.funmagicity.entity.ChangeAdapter;
 import com.gis.zn.funmagicity.entity.Scenery;
 import com.gis.zn.funmagicity.entity.SpotOrderAdapter;
 import com.gis.zn.funmagicity.ui.BaseActivity;
+import com.gis.zn.funmagicity.ui.LoginActivity;
 import com.gis.zn.funmagicity.ui.RoutingActivity;
 import com.gis.zn.funmagicity.ui.TestActivity;
 import com.gis.zn.funmagicity.ui.UserInfoActivity;
@@ -25,6 +26,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobUser;
 
 public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Callback {
 
@@ -92,7 +94,15 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
         user_info_order_spots.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SpotsOrderActivity.this, UserInfoActivity.class));
+                BmobUser currentUser = BmobUser.getCurrentUser();
+                if(currentUser==null)
+                {
+                    startActivity(new Intent(SpotsOrderActivity.this, LoginActivity.class));
+                }
+                else {
+                    startActivity(new Intent(SpotsOrderActivity.this, UserInfoActivity.class));
+
+                }
             }
         });
 
