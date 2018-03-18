@@ -37,6 +37,8 @@ import com.tencent.tencentmap.mapsdk.map.TencentMap;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -58,6 +60,8 @@ public class RoutingActivity extends MapActivity {
     private List<WalkingResultObject.Route> walkRoutes;
     private List<DrivingResultObject.Route> driveRoutes;
     private List<TransitResultObject.Route> transitRoutes;
+
+    private List<Scenery> sceneryList;
 
     @Bind(R.id.mapview)
     MapView mapview;
@@ -151,7 +155,127 @@ public class RoutingActivity extends MapActivity {
                         TransitResultObject.Route route = transitRoutes.get(0);
                         strLabel = new String("距离：" + getDistance(route.distance) +
                                 "，预计用时：" + getDuration(route.duration));
-			/*
+            /*
+             * TransitResultObject.Segment是TransitResultObject.Walking和
+			 * TransitResultObject.Transit的父类
+			 * 其中TransitResultObject.Walking的结构基本与WalkingResultObject.Route相同
+			 * TransitResultObject.Transit中包含lines字段，只有lines的第一个元素才会有路线点串
+			 */
+                        if (segments == null) {
+                            strDesc = new String("暂无详情");
+                        }
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for (int i = 0; i < segments.size(); i++) {
+                            TransitResultObject.Segment segment = segments.get(i);
+                            if (segment instanceof TransitResultObject.Transit) {
+                                List<TransitResultObject.Line> lines = ((TransitResultObject.Transit) segment).lines;
+                                if (lines == null) {
+                                }
+                                stringBuilder.append(lines.get(0).title);
+                                if (lines.size() > 1) {
+                                    for (int j = 1; j < lines.size(); j++) {
+                                        stringBuilder.append("/" + lines.get(j).title);
+                                    }
+                                }
+                            }
+                            if (i != 0 && i < segments.size() - 1
+                                    && segments.get(i + 1) instanceof TransitResultObject.Transit) {
+                                stringBuilder.append(" -> ");
+                            }
+                        }
+                        strDesc = stringBuilder.toString();
+                        Toast.makeText(RoutingActivity.this, strDesc, Toast.LENGTH_LONG).show();
+                        time.setText(strLabel);
+
+                    }
+//                    roadPlanAdapter.setPlanObject(obj);
+//                    roadPlanAdapter.notifyDataSetChanged();
+//                    showPlans();
+                }
+
+                @Override
+                public void onFailure(int arg0, String arg1, Throwable arg2) {
+                    // TODO Auto-generated method stub
+                    Toast.makeText(RoutingActivity.this, arg1, Toast.LENGTH_SHORT).show();
+                }
+            };
+
+    HttpResponseListener finalDirectionResponseListener =
+            new HttpResponseListener() {
+
+                @Override
+                public void onSuccess(int arg0, BaseObject arg1) {
+                    // TODO Auto-generated method stub
+                    String strLabel = "";
+                    String strDesc = "";
+                    if (arg1 == null) {
+                        return;
+                    }
+                    Log.e("searchdemo", "plan success");
+                    RoutePlanningObject obj = (RoutePlanningObject) arg1;
+//                    vanishPlans();
+//                    tencentMap.clearAllOverlays();
+                    tencentMap.setCenter(new LatLng(start_lat, start_lon));
+                    tencentMap.setZoom(14);
+                    if (obj instanceof WalkingResultObject) {
+                        WalkingResultObject walkObj = (WalkingResultObject) obj;
+                        walkRoutes = walkObj.result.routes;
+                        drawSolidLine(walkRoutes.get(0).polyline);
+
+                        WalkingResultObject.Route route = walkRoutes.get(0);
+                        strLabel = new String("距离：" + getDistance(route.distance) +
+                                ", 预计用时：" + getDuration(route.duration));
+            /*
+             * RoutePlanningObject.Step 每段路线的详细信息
+			 * 附加描述 accessorial_desc 如“进入主路”
+			 * 动作描述 act_desc
+			 * 方向 dir_desc
+			 * 距离 distance
+			 * 用时 duration
+			 * 默认提供的路段说明 instruction
+			 * 路段点串在总路线点串中的位置 polyline_idx(起点和终点)
+			 * 路名 road_name
+			 */
+                        if (route.steps != null && route.steps.size() > 0) {
+                            strDesc = new String(route.steps.get(0).instruction + "... ...");
+                        } else {
+                            strDesc = new String("暂无详情");
+                        }
+
+                        Toast.makeText(RoutingActivity.this, strDesc, Toast.LENGTH_LONG).show();
+                        time.setText(strLabel);
+                    } else if (obj instanceof DrivingResultObject) {
+                        DrivingResultObject drivingObj = (DrivingResultObject) obj;
+                        driveRoutes = drivingObj.result.routes;
+                        drawSolidLine(driveRoutes.get(0).polyline);
+                        DrivingResultObject.Route route = driveRoutes.get(0);
+                        strLabel = new String("距离：" + getDistance(route.distance) +
+                                ", 预计用时：" + getDuration(route.duration));
+                        if (route.steps != null && route.steps.size() > 0) {
+                            strDesc = new String(route.steps.get(0).instruction + "... ...");
+                        } else {
+                            strDesc = new String("暂无详情");
+                        }
+                        Toast.makeText(RoutingActivity.this, strDesc, Toast.LENGTH_LONG).show();
+                        time.setText(strLabel);
+                    } else if (obj instanceof TransitResultObject) {
+                        TransitResultObject transitObj = (TransitResultObject) obj;
+                        transitRoutes = transitObj.result.routes;
+                        List<TransitResultObject.Segment> segments =
+                                transitRoutes.get(0).steps;
+                        for (TransitResultObject.Segment segment : segments) {
+                            if (segment instanceof TransitResultObject.Walking) {
+                                drawDotLine(((TransitResultObject.Walking) segment).polyline);
+                            }
+                            if (segment instanceof TransitResultObject.Transit) {
+                                drawSolidLine(((TransitResultObject.Transit) segment).lines.get(0).polyline);
+                            }
+                        }
+
+                        TransitResultObject.Route route = transitRoutes.get(0);
+                        strLabel = new String("距离：" + getDistance(route.distance) +
+                                "，预计用时：" + getDuration(route.duration));
+            /*
 			 * TransitResultObject.Segment是TransitResultObject.Walking和
 			 * TransitResultObject.Transit的父类
 			 * 其中TransitResultObject.Walking的结构基本与WalkingResultObject.Route相同
@@ -205,6 +329,9 @@ public class RoutingActivity extends MapActivity {
 
         Scenery start = (Scenery) getIntent().getSerializableExtra("start");
         Scenery end = (Scenery) getIntent().getSerializableExtra("end");
+
+        sceneryList = (List<Scenery>) getIntent().getSerializableExtra("scenery_list");
+
         start_lon = start.getLongitude();
         start_lat = start.getLatitude();
         end_lon = end.getLongitude();
@@ -244,7 +371,7 @@ public class RoutingActivity extends MapActivity {
 //设置地图中心点
         tencentMap.setCenter(new LatLng(start_lat, start_lon));
 //设置缩放级别
-        tencentMap.setZoom(14);
+        tencentMap.setZoom(18);
     }
 
     @Override
@@ -304,17 +431,29 @@ public class RoutingActivity extends MapActivity {
 
                 switch (v.getId()) {
                     case R.id.fab_walk:
-                        getWalkPlan();
+                        if (null == sceneryList) {
+                            getWalkPlan();
+                        } else {
+                            getFinalWalkPlan();
+                        }
                         Log.e("searchdemo", "walk click");
                         fab_walk.setSelected(true);
                         break;
                     case R.id.fab_car:
-                        getDrivePlan();
+                        if (null == sceneryList) {
+                            getDrivePlan();
+                        } else {
+                            getFinalDrivePlan();
+                        }
                         Log.e("searchdemo", "drive click");
                         fab_car.setSelected(true);
                         break;
                     case R.id.fab_bus:
-                        getTransitPlan();
+                        if (null == sceneryList) {
+                            getTransitPlan();
+                        } else {
+                            getFinalTransitPlan();
+                        }
                         Log.e("searchdemo", "transit click");
                         fab_bus.setSelected(true);
                         break;
@@ -454,6 +593,63 @@ public class RoutingActivity extends MapActivity {
         } else {
             return Integer.toString((int) (duration / 60)) + "小时"
                     + Integer.toString((int) (duration % 60)) + "分钟";
+        }
+    }
+
+    protected void getFinalWalkPlan() {
+        tencentMap.clearAllOverlays();
+        for (int i = 0; i < sceneryList.size() - 1; i++) {
+            Scenery s = sceneryList.get(i);
+            Scenery d = sceneryList.get(i + 1);
+            Location eachStart = new Location((float) s.getLatitude(), (float) s.getLongitude());
+            Location eachDestination = new Location((float) d.getLatitude(), (float) d.getLongitude());
+            Location[] finalLocations = {eachStart, eachDestination};
+            TencentSearch tencentSearch = new TencentSearch(this);
+            WalkingParam walkingParam = new WalkingParam();
+            walkingParam.from(finalLocations[0]);
+            walkingParam.to(finalLocations[1]);
+            tencentSearch.getDirection(walkingParam, finalDirectionResponseListener);
+        }
+    }
+
+    protected void getFinalDrivePlan() {
+        tencentMap.clearAllOverlays();
+        for (int i = 0; i < sceneryList.size() - 1; i++) {
+            Scenery s = sceneryList.get(i);
+            Scenery d = sceneryList.get(i + 1);
+            Location eachStart = new Location((float) s.getLatitude(), (float) s.getLongitude());
+            Location eachDestination = new Location((float) d.getLatitude(), (float) d.getLongitude());
+            Location[] finalLocations = {eachStart, eachDestination};
+            TencentSearch tencentSearch = new TencentSearch(this);
+            DrivingParam drivingParam = new DrivingParam();
+            drivingParam.from(finalLocations[0]);
+            drivingParam.to(finalLocations[1]);
+            //策略
+            drivingParam.policy(RoutePlanningParam.DrivingPolicy.LEAST_DISTANCE);
+            //途经点
+//		drivingParam.addWayPoint(new Location(39.898938f, 116.348648f));
+            tencentSearch.getDirection(drivingParam, finalDirectionResponseListener);
+        }
+    }
+
+    /**
+     * 公交换乘，支持策略，具体信息见文档
+     */
+    protected void getFinalTransitPlan() {
+        tencentMap.clearAllOverlays();
+        for (int i = 0; i < sceneryList.size() - 1; i++) {
+            Scenery s = sceneryList.get(i);
+            Scenery d = sceneryList.get(i + 1);
+            Location eachStart = new Location((float) s.getLatitude(), (float) s.getLongitude());
+            Location eachDestination = new Location((float) d.getLatitude(), (float) d.getLongitude());
+            Location[] finalLocations = {eachStart, eachDestination};
+            TencentSearch tencentSearch = new TencentSearch(this);
+            TransitParam transitParam = new TransitParam();
+            transitParam.from(finalLocations[0]);
+            transitParam.to(finalLocations[1]);
+            //策略
+            transitParam.policy(RoutePlanningParam.TransitPolicy.LEAST_TIME);
+            tencentSearch.getDirection(transitParam, finalDirectionResponseListener);
         }
     }
 }

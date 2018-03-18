@@ -39,6 +39,8 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
     ImageView user_info_order_spots;
     @Bind(R.id.listview_ordered)
     ListView listview_ordered;
+    @Bind(R.id.fab_final_path)
+    FloatingActionButton fab_final_path;
 
     private List<Scenery> mSceneryList = new ArrayList<>();
     private ArrayList<Scenery> mScenerySelectedList = new ArrayList<>();
@@ -128,6 +130,19 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
                     Toast.makeText(SpotsOrderActivity.this, "您已经完成此次定制", Toast.LENGTH_LONG).show();
 
                 }
+            }
+        });
+
+        fab_final_path.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(SpotsOrderActivity.this, RoutingActivity.class);
+                Scenery start = mScenerySelectedList.get(0);
+                Scenery end = mScenerySelectedList.get(mScenerySelectedList.size() - 1);
+                intent3.putExtra("start", start);
+                intent3.putExtra("end", end);
+                intent3.putExtra("scenery_list", mScenerySelectedList);
+                startActivity(intent3);
             }
         });
     }
