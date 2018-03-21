@@ -122,7 +122,7 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
             @Override
             public void onClick(View view) {
                 int currentDay = getCurrentDay();
-                if (currentDay <= getDays()) {
+                if (currentDay < getDays()) {
                     setCurrentDay(currentDay + 1);
                     boolean[] label1List = null;
                     boolean[] label2List = null;
