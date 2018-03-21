@@ -90,7 +90,7 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
     void initView() {
 //        user_info_order_spots.setOnClickListener(this);
 //        back_order_spots.setOnClickListener(this);
-
+        baseSelectSpotsList = mScenerySelectedList;
         adapter = new ChangeAdapter(this, mScenerySelectedList, this, currentPosition);
         listview_ordered.setAdapter(adapter);
 
@@ -115,17 +115,23 @@ public class SpotsOrderActivity extends BaseActivity implements ChangeAdapter.Ca
             }
         });
 
-        Log.e("DateEndActivity", String.valueOf(days));
-        Log.e("DateEndActivity", String.valueOf(currentDay));
+        Log.e("DateEndActivity", String.valueOf(getDays()));
+        Log.e("DateEndActivity", String.valueOf(getCurrentDay()));
 
         fab_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentDay <= days) {
-                    currentDay++;
-                    Intent intent3 = new Intent(SpotsOrderActivity.this, Label1Activity.class);
+                int currentDay = getCurrentDay();
+                if (currentDay <= getDays()) {
+                    setCurrentDay(currentDay + 1);
+                    boolean[] label1List = null;
+                    boolean[] label2List = null;
+                    Intent intent3 = new Intent(SpotsOrderActivity.this, SelectSpotsActivity.class);
+                    intent3.putExtra("label1_list", label1List);
+                    intent3.putExtra("label2_list", label2List);
                     startActivity(intent3);
-                    showLog("currentDay <= days" + currentDay + "|" + days);
+                    showLog("currentDay <= days" + currentDay + "|" + getDays());
+                    finish();
                 } else {
                     Toast.makeText(SpotsOrderActivity.this, "您已经完成此次定制", Toast.LENGTH_LONG).show();
 

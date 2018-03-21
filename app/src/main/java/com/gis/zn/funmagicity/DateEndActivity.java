@@ -44,10 +44,10 @@ public class DateEndActivity extends BaseActivity implements View.OnClickListene
                 date_end = date;
 
                 long day = (date.getTime() - date_start.getTime()) / (24 * 60 * 60 * 1000) + 1;
-                days = (int) day;
-                currentDay = 1;
-                Log.e("DateEndActivity", String.valueOf(days));
-                Log.e("DateEndActivity", String.valueOf(currentDay));
+                setDays((int) day);
+                setCurrentDay(1);
+                Log.e("DateEndActivity", String.valueOf(getDays()));
+                Log.e("DateEndActivity", String.valueOf(getCurrentDay()));
                 Intent intent = new Intent(DateEndActivity.this, Label1Activity.class);
                 startActivity(intent);
                 break;

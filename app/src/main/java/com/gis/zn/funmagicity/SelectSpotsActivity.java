@@ -93,6 +93,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                     sceneryResult(label1Mappings, label1SpotsIdList);
                     showLog("SelectSpotsActivity searchByLabel1 " + label1SpotsIdList.size());
                     if (label2SpotsIdList.size() != 0) {
+                        baseSpotsIdList.addAll(label2SpotsIdList);
                         random_and_select();
                         updateList();
                     }
@@ -102,6 +103,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                     sceneryResult(label2Mappings, label2SpotsIdList);
                     showLog("SelectSpotsActivity searchByLabel2 " + label2SpotsIdList.size());
                     if (label1SpotsIdList.size() != 0) {
+                        baseSpotsIdList.addAll(label2SpotsIdList);
                         random_and_select();
                         updateList();
                     }
@@ -123,10 +125,15 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
 
         label1List = (boolean[]) getIntent().getExtras().getBooleanArray("label1_list");
         label2List = (boolean[]) getIntent().getExtras().getBooleanArray("label2_list");
-        if (label2List[1])
-            sub1LabelList = (boolean[]) getIntent().getExtras().getBooleanArray("sub1_label_list");
-        if (label2List[2])
-            sub2LabelList = (boolean[]) getIntent().getExtras().getBooleanArray("sub2_label_list");
+        if(label1List==null||label2List==null){
+            remove_and_select();
+            updateList();
+        }
+        else {
+            if (label2List[1])
+                sub1LabelList = (boolean[]) getIntent().getExtras().getBooleanArray("sub1_label_list");
+            if (label2List[2])
+                sub2LabelList = (boolean[]) getIntent().getExtras().getBooleanArray("sub2_label_list");
 //        showLog("SelectSpotsActivity label1List: ");
 //        for (boolean b : label1List)
 //            showLog(b + " ");
@@ -139,8 +146,8 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
 //        showLog("sub2_label_list: ");
 ////        for (boolean b : sub2LabelList)
 //        showLog(sub1LabelList + " ");
-
-        select_spots();
+            select_spots();
+        }
     }
 
     @Override
@@ -171,7 +178,7 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
         user_info.setOnClickListener(this);
         back_select_spots.setOnClickListener(this);
         fab_selected.setOnClickListener(this);
-        String title = "出行第" + currentDay + "天";
+        String title = "出行第" + getCurrentDay() + "天";
         date_title.setText(title);
     }
 
@@ -353,16 +360,34 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
         showLog("hashmap success " + hashMap1.size());
     }
 
-    private void random_and_select() {
+    private void random_and_select( ) {
         label1SpotsIdList.retainAll(label2SpotsIdList);
         Collections.shuffle(label1SpotsIdList);
         showLog("random_and_select" + label1SpotsIdList.size());
         for (Integer i : label1SpotsIdList) {
             showLog(i.toString());
         }
+
         int limit = label1SpotsIdList.size() > 10 ? 10 : label1SpotsIdList.size();
         for (int i = 0; i < limit; i++) {
             spotsIdList.add(label1SpotsIdList.get(i));
+        }
+    }
+
+    private void remove_and_select( ) {
+        spotsIdList.clear();
+        Collections.shuffle(baseSpotsIdList);
+        showLog("random_and_select" + baseSpotsIdList.size());
+        for(Scenery s:baseSelectSpotsList){
+            Integer integer = new Integer(s.getId());
+            baseSpotsIdList.remove(integer);
+        }
+        for (Integer i : baseSpotsIdList) {
+            showLog(i.toString());
+        }
+        int limit = baseSpotsIdList.size() > 10 ? 10 : label1SpotsIdList.size();
+        for (int i = 0; i < limit; i++) {
+            spotsIdList.add(baseSpotsIdList.get(i));
         }
     }
 

@@ -28,10 +28,12 @@ public class BaseActivity extends AppCompatActivity {
 
     public static Date date_start ;
     public static Date date_end ;
-    public static int days;
-    public static int currentDay;
+    private static int days;
+    private static int currentDay;
 
     public static List<Scenery> mSceneryBaseList = new ArrayList<>();
+    public static List<Scenery> baseSelectSpotsList = new ArrayList<>();
+    public static ArrayList<Integer> baseSpotsIdList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
