@@ -35,12 +35,12 @@ import cn.bmob.v3.listener.FindListener;
 
 public class SelectSpotsActivity extends BaseActivity implements View.OnClickListener {
 
-    @Bind(R.id.user_info_select_spots)
-    ImageView user_info;
-    @Bind(R.id.back_select_spots)
-    ImageView back_select_spots;
-    @Bind(R.id.date_title)
-    TextView date_title;
+//    @Bind(R.id.user_info_select_spots)
+//    ImageView user_info;
+//    @Bind(R.id.back_select_spots)
+//    ImageView back_select_spots;
+//    @Bind(R.id.date_title)
+//    TextView date_title;
 
     private ArrayList<Integer> list;
     private ArrayList<Integer> listop = new ArrayList<>();
@@ -175,11 +175,11 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void initView() {
-        user_info.setOnClickListener(this);
-        back_select_spots.setOnClickListener(this);
+//        user_info.setOnClickListener(this);
+//        back_select_spots.setOnClickListener(this);
         fab_selected.setOnClickListener(this);
         String title = "出行第" + getCurrentDay() + "天";
-        date_title.setText(title);
+//        date_title.setText(title);
     }
 
     private void select_spots() {
@@ -409,8 +409,8 @@ public class SelectSpotsActivity extends BaseActivity implements View.OnClickLis
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(SelectSpotsActivity.this, R.layout.item_scenery, mSceneryList);
-                                        listview_select.setAdapter(sceneryAdapter);
+//                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(SelectSpotsActivity.this, R.layout.item_scenery, mSceneryList);
+//                                        listview_select.setAdapter(sceneryAdapter);
                                     }
                                 });
 

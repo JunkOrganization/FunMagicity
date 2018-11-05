@@ -44,7 +44,7 @@
     <style name="AppTheme.NoActionBar.YellowYellow">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimaryDark">@color/colorYellowOrange</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorYellow</item>
     </style>
 

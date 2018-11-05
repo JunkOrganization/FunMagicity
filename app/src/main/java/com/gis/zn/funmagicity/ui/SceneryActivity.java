@@ -30,8 +30,8 @@ public class SceneryActivity extends BaseActivity implements View.OnClickListene
 
     @Bind(R.id.listview)
     ListView mListView;
-    @Bind(R.id.user_info3)
-    ImageView user_info3;
+//    @Bind(R.id.user_info3)
+//    ImageView user_info3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,12 @@ public class SceneryActivity extends BaseActivity implements View.OnClickListene
         setContentView(R.layout.activity_scenery);
         ButterKnife.bind(this);
 
-        user_info3.setOnClickListener(this);
+//        user_info3.setOnClickListener(this);
 
         list = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("scenery_res");
-        for (int i = 0; i < 10; i++) {
-            listop.add(list.get(i));
-        }
+//        for (int i = 0; i < 10; i++) {
+//            listop.add(list.get(i));
+//        }
         showLog("sceneryResultFinal:" + mSceneryList.size());
 
 
@@ -71,8 +71,8 @@ public class SceneryActivity extends BaseActivity implements View.OnClickListene
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(SceneryActivity.this, R.layout.item_scenery, mSceneryList);
-                                        mListView.setAdapter(sceneryAdapter);
+//                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(SceneryActivity.this, R.layout.item_scenery, mSceneryList);
+//                                        mListView.setAdapter(sceneryAdapter);
                                     }
                                 });
 
@@ -91,9 +91,9 @@ public class SceneryActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.user_info3:
-                startActivity(new Intent(SceneryActivity.this, UserInfoActivity.class));
-                break;
+//            case R.id.user_info3:
+//                startActivity(new Intent(SceneryActivity.this, UserInfoActivity.class));
+//                break;
         }
 
     }

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.gis.zn.funmagicity.R;
 import com.gis.zn.funmagicity.SpotInfoActivity;
+import com.gis.zn.funmagicity.ui.Main4Activity;
 
 import org.w3c.dom.Text;
 
@@ -33,17 +34,17 @@ import cn.bmob.v3.listener.DownloadFileListener;
  * Created by zhaoning on 2018/2/28.
  */
 
-public class SceneryAdapter extends ArrayAdapter<Scenery> {
+public class SceneryAdapter extends ArrayAdapter<Picture> {
     private int resourseId;
 
-    public SceneryAdapter(@NonNull Context context, int textViewResourceId, @NonNull List<Scenery> objects) {
+    public SceneryAdapter(@NonNull Context context, int textViewResourceId, @NonNull List<Picture> objects) {
         super(context,textViewResourceId, objects);
         resourseId=textViewResourceId;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        final Scenery scenery=getItem(position);
+        final Picture scenery=getItem(position);
         View view;
         ViewHolder viewHolder;
         if(convertView==null){
@@ -59,8 +60,8 @@ public class SceneryAdapter extends ArrayAdapter<Scenery> {
             view=convertView;
             viewHolder=(ViewHolder)view.getTag();//重新获取viewHolder
         }
-        viewHolder.sceneryName.setText(scenery.getName());
-        viewHolder.sceneryIntro.setText(scenery.getIntro());
+        viewHolder.sceneryName.setText(scenery.getDescription());
+        viewHolder.sceneryIntro.setText(scenery.getUsername());
 
         BmobFile bmobfile = scenery.getImage();
         if(bmobfile!= null){
@@ -77,12 +78,12 @@ public class SceneryAdapter extends ArrayAdapter<Scenery> {
             @Override
             public void onClick(View view) {
                 CheckBox cb=(CheckBox) view.findViewById(R.id.checkBox);
-                if(cb.isChecked()){
-                    scenery.setChecked(true);
-                }
-                else
-                    scenery.setChecked(false);
-                Log.i("SceneryAdapter", "checkout onClick: "+scenery.getName()+scenery.isChecked());
+//                if(cb.isChecked()){
+//                    scenery.setChecked(true);
+//                }
+//                else
+//                    scenery.setChecked(false);
+                Log.i("SceneryAdapter", "checkout onClick: "+scenery.getUsername());
             }
         });
 
@@ -97,8 +98,7 @@ public class SceneryAdapter extends ArrayAdapter<Scenery> {
         viewHolder.sceneryName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(), SpotInfoActivity.class);
-                intent.putExtra("scenery",scenery);
+                Intent intent=new Intent(getContext(), Main4Activity.class);
                 getContext().startActivity(intent);
             }
         });

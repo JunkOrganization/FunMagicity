@@ -17,7 +17,7 @@ public class BaseApplication extends Application {
         //提供以下两种方式进行初始化操作：
 
         //第一：默认初始化
-        Bmob.initialize(this, "fd84f053ddd55a4a081bf768e85e12cc","bmob");
+        Bmob.initialize(this, "09fee403f1f363a358f50dca5ae244df","bmob");
         // 注:自v3.5.2开始，数据sdk内部缝合了统计sdk，开发者无需额外集成，传渠道参数即可，不传默认没开启数据统计功能
         //Bmob.initialize(this, "Your Application ID","bmob");
 

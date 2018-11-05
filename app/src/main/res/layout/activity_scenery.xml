@@ -6,46 +6,46 @@
               android:orientation="vertical"
               android:weightSum="100">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        android:weightSum="10">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"/>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="7"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:weightSum="10">-->
 
         <!--<TextView-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="6"-->
-        <!--android:text="FUN 魔都"-->
-        <!--android:gravity="center"-->
-        <!--android:textSize="18dp"-->
-        <!--android:textColor="@color/colorWhite"-->
-        <!--android:fontFamily="sans-serif"-->
-        <!--android:textStyle="italic|bold"/>-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"/>-->
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:padding="10dp"
-            android:src="@drawable/title_whiter"/>
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="6"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="FUN 魔都"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="18dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="@color/colorWhite"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:fontFamily="sans-serif"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textStyle="italic|bold"/>&ndash;&gt;-->
 
-        <ImageView
-            android:id="@+id/user_info3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:padding="5dp"
-            android:src="@drawable/icon_user"/>
+        <!--<ImageView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="6"-->
+            <!--android:padding="10dp"-->
+            <!--android:src="@drawable/title_whiter"/>-->
 
-    </LinearLayout>
+        <!--<ImageView-->
+            <!--android:id="@+id/user_info3"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:padding="5dp"-->
+            <!--android:src="@drawable/icon_user"/>-->
+
+    <!--</LinearLayout>-->
 
     <ListView
         android:id="@+id/listview"

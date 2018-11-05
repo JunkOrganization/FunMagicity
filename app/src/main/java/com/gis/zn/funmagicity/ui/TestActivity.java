@@ -91,8 +91,8 @@ public class TestActivity extends BaseActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(TestActivity.this, R.layout.item_scenery, mSceneryList);
-                                        listview_test.setAdapter(sceneryAdapter);
+//                                        SceneryAdapter sceneryAdapter = new SceneryAdapter(TestActivity.this, R.layout.item_scenery, mSceneryList);
+//                                        listview_test.setAdapter(sceneryAdapter);
                                     }
                                 });
 

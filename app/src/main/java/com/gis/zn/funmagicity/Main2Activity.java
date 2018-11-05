@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.gis.zn.funmagicity.ui.BaseActivity;
 import com.gis.zn.funmagicity.ui.LoginActivity;
+import com.gis.zn.funmagicity.ui.SceneryActivity;
 import com.gis.zn.funmagicity.ui.UserInfoActivity;
 
 import butterknife.Bind;
@@ -37,7 +38,7 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_go:
-                startActivity(new Intent(Main2Activity.this, DateActivity.class));
+                startActivity(new Intent(Main2Activity.this, Main3Activity.class));
                 break;
             case R.id.main_user_info:
                 BmobUser currentUser = BmobUser.getCurrentUser();

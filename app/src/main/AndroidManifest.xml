@@ -66,7 +66,6 @@
         <activity
             android:name=".ui.TestActivity"
             android:theme="@style/AppTheme.NoActionBar.Gray">
-
         </activity>
         <activity
             android:name=".ui.UserInfoActivity"
@@ -120,10 +119,14 @@
             android:label="开始日期选择"
             android:theme="@style/AppTheme.Grey">
         </activity>
-        <activity android:name=".DateEndActivity"
-                  android:label="结束日期选择"
-                  android:theme="@style/AppTheme.Grey">
-
+        <activity
+            android:name=".DateEndActivity"
+            android:label="结束日期选择"
+            android:theme="@style/AppTheme.Grey">
+        </activity>
+        <activity android:name=".Main3Activity">
+        </activity>
+        <activity android:name=".ui.Main4Activity">
         </activity>
     </application>
 

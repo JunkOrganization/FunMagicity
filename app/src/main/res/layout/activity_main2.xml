@@ -8,13 +8,15 @@
     android:background="@drawable/bg"
     tools:context="com.gis.zn.funmagicity.Main2Activity">
 
-    <ImageView
+    <TextView
         android:id="@+id/imageView"
         android:layout_width="220dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/title_whiter"
+        android:text="My Eye"
+        android:textSize="130px"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/cv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -90,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:text="出行次数：3次"
+                    android:text="使用次数：3次"
                     android:textColor="@color/colorGrey"
                     android:textSize="18sp"/>
             </RelativeLayout>
@@ -116,7 +118,7 @@
                     android:layout_height="50dp"
                     android:background="@drawable/bt_shape"
                     android:stateListAnimator="@drawable/state_list_animator_z"
-                    android:text="开始定制"
+                    android:text="开始帮助"
                     android:textColor="@color/colorPrimary"
                     >
                 </Button>

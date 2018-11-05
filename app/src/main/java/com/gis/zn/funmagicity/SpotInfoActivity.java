@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.gis.zn.funmagicity.entity.Picture;
 import com.gis.zn.funmagicity.entity.Scenery;
 import com.gis.zn.funmagicity.ui.BaseActivity;
 
@@ -26,7 +27,7 @@ public class SpotInfoActivity extends BaseActivity implements View.OnClickListen
     @Bind(R.id.img_spot_info)
     ImageView img_spot_info;
 
-    private Scenery scenery;
+    private Picture scenery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class SpotInfoActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_spot_info);
         ButterKnife.bind(this);
 
-        scenery = (Scenery) getIntent().getSerializableExtra("scenery");
+        scenery = (Picture) getIntent().getSerializableExtra("scenery");
         initView();
     }
 
@@ -49,8 +50,8 @@ public class SpotInfoActivity extends BaseActivity implements View.OnClickListen
     }
 
     void initView() {
-        spot_info_title.setText(scenery.getName());
-        spot_info_intro.setText(scenery.getIntro());
+        spot_info_title.setText(scenery.getDescription());
+        spot_info_intro.setText(scenery.getUsername());
         if (scenery.getImage() != null) {
             Uri uri = Uri.parse(scenery.getImage().getUrl());
             Glide.with(getApplicationContext())

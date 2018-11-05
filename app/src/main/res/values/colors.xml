@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF8432</color>
-    <color name="colorPrimaryDark">#E67931</color>
+    <!--<color name="colorPrimary">#FF8432</color>-->
+    <!--<color name="colorPrimaryDark">#E67931</color>-->
+
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorDark">#000000</color>
 
     <color name="colorPrimaryDarker">#D16038</color>
@@ -14,14 +18,19 @@
     <color name="colorBlackTransprant">#50000000</color>
     <color name="colorWhiteTransprant">#50FFFFFF</color>
 
-    <color name="colorBtnStoke">#FF8432</color>
+    <color name="colorBtnStoke">#303F9F</color>
 
-    <color name="colorYellowOrange">#F3AC2E</color>
+    <color name="colorYellowOrange">#303F9F</color>
     <color name="colorGrey">#676767</color>
     <color name="colorDarkerGrey">#28282A</color>
-    <color name="colorYellow">#F7B62D</color>
+    <color name="colorYellow">#3F51B5</color>
     <color name="colorBlue">#1D86C8</color>
     <color name="colorRed">#C82E3E</color>
     <color name="colorGreen">#299A2A</color>
+
+
+
+    <color name="colorBlueBg">#243a61</color>
+    <color name="colorDeepBlueBtn">#0d1525</color>
 
 </resources>
